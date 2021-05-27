@@ -8,6 +8,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './views/home/home.component';
 import { BannerUserComponent } from './components/banner-user/banner-user.component';
 import { UserProductsComponent } from './views/users/user-products/user-products.component';
+import { UserPostProductComponent } from './views/users/user-post-product/user-post-product.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,11 +18,13 @@ import { UserProductsComponent } from './views/users/user-products/user-products
     HeaderComponent,
     HomeComponent,
     BannerUserComponent,
-    UserProductsComponent
+    UserProductsComponent,
+    UserPostProductComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
