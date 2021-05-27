@@ -1,0 +1,41 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 1px 0px;
+    grid-template-areas:
+    "title title"
+    "name last-name"
+    "email email"
+    "password password"
+    "log-in log-in"
+    ". create-account";
+}
+
+.title {
+    grid-area: title;
+}
+
+.name {
+    grid-area: name;
+}
+
+.lastName {
+  grid-area: lastName;
+}
+
+.email {
+  grid-area: email;
+}
+
+.password {
+  grid-area: password;
+}
+
+.logIn {
+  grid-area: logIn;
+}
+
+.createAccount {
+  grid-area: createAccount;
+}
