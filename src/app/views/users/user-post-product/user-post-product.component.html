@@ -17,9 +17,9 @@
                 <textarea class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text" placeholder="Ingresa la descripción del artículo" [(ngModel)]="newProduct.description"></textarea>
 
                 <div class="grid grid-cols-2">
-                    <input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text" placeholder="Día inicio"[(ngModel)]="newProduct.day_start"/>
+                    <input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="date" placeholder="Día inicio"[(ngModel)]="newProduct.day_start"/>
     
-                    <input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text" placeholder="Día fin" [(ngModel)]="newProduct.day_finish"/>
+                    <input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="date" placeholder="Día fin" [(ngModel)]="newProduct.day_finish"/>
                 </div> 
             </div>
             <button class="rounded-full bg-purple-700 p-5 text-white" (click)="create()">Guardar</button>

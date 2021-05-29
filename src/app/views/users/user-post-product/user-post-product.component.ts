@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { Product } from 'src/app/models/products.model';
 import { ProductsService } from 'src/app/services/products/products.service';
 
@@ -9,23 +10,20 @@ import { ProductsService } from 'src/app/services/products/products.service';
 })
 export class UserPostProductComponent implements OnInit {
 
-  newProduct : Product = {name: '', description: '', day_start: 0, day_finish: 0, photo: '', userId: 0}
-  message : string = '';
+  newProduct : Product = {name: '', description: '', day_start: new Date, day_finish: new Date, photo: '', userId: 0}
 
-  constructor(private productsService : ProductsService) { }
+  constructor(private productsService : ProductsService, private toastr: ToastrService) { }
   
   ngOnInit(): void {
 
   }
 
   create(){
-   // console.log(this.newProduct);
     this.productsService.create(this.newProduct)
     .then(newProuct => {
-        console.log(this.newProduct);
-        this.message = "Se ha creado con éxito el artículo"+newProuct.name;
+        this.toastr.success('Se ha creado con éxito el artículo '+this.newProduct.name); 
     }).catch(e => {
-      alert('po creo que no');
+        this.toastr.error('Ha ocurrido un error con la creación del producto '+this.newProduct.name); 
     });
   }
 }

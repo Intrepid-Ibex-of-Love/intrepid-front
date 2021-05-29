@@ -1,8 +1,8 @@
 export interface Product{
     name: string,
     description: string,
-    day_start: number,
-    day_finish: number,
+    day_start: Date,
+    day_finish: Date,
     photo: string,
     userId: number
 }

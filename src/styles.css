@@ -2,3 +2,6 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+/** IMPORT NOTIFICACIONES BONICAS UWU*/
+@import url(toast.css);
