@@ -23,8 +23,7 @@ export class UserPostProductComponent implements OnInit {
     this.productsService.create(this.newProduct)
     .then(newProuct => {
         console.log(this.newProduct);
-        
-        //this.message = "Se ha creado con éxito el artículo"+newProuct.name;
+        this.message = "Se ha creado con éxito el artículo"+newProuct.name;
     }).catch(e => {
       alert('po creo que no');
     });

@@ -14,9 +14,7 @@ export class ProductsService {
     return axios.get(this.apiURL).then(products => products.data.results);
   }
   
-  create(_product : Product){
-    return axios.post(this.apiURL+"/").then(res => {
-      console.log(res.data)
-    }).catch(e => console.error(e));
+  create(product : Product){
+    return axios.post(this.apiURL, product).then(res => res.data).catch(e => console.error(e));
   }
 }
