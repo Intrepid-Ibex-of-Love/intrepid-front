@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  loginState: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  clicked = () => this.loginState = !this.loginState;
 
 }

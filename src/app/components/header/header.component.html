@@ -1,9 +1,9 @@
 <header class="border-b-2 border-purple-700">
     <nav class="flex flex-wrap items-center justify-between p-5">
-        <a class="text-purple-700 font-bold text-2xl">Prestalo</a>
-        <div>
-            <a class="text-black mr-4">Registrate</a>
-            <a class="bg-purple-700 rounded-full py-3 px-6 text-white">Iniciar sesión</a>
+        <a [routerLink]="['']" class="text-purple-700 font-bold text-2xl">Contact</a>
+        <div *ngIf="!this.loginState">
+            <a [routerLink]="['sign-in']" class="text-black mr-4" (click)=this.clicked()>Regístrate</a>
+            <a [routerLink]="['login']" class="bg-purple-700 rounded-full py-3 px-6 text-white" (click)=this.clicked()>Iniciar sesión</a>
         </div>
     </nav>
 </header>

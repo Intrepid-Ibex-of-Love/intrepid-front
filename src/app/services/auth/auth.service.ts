@@ -9,8 +9,12 @@ export class AuthService {
 
   constructor() { }
 
-  login(loginData: {email: String, password: String}){
-    return axios.post( this.apiURL+'/login', loginData)
+  async login(loginData: {email: string, password: string}){
+    return axios.post( this.apiURL+'login', loginData)
+    .then(res => res.data);
+  }
+  async register(registerData: {name: string, lastname: string, email: string, password: string}){
+    return axios.post( this.apiURL+'login', registerData)
     .then(res => res.data);
   }
 }

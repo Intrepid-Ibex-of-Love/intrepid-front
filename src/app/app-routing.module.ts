@@ -10,8 +10,7 @@ import { AuthGuard } from './guards/auth.guard';
 const routes: Routes = [
   {
     path:'',
-    component: HomeComponent,
-    canActivate: [AuthGuard]
+    component: HomeComponent
   },
   /*Login */
   {
@@ -25,11 +24,13 @@ const routes: Routes = [
   /*Rutas para users*/
   {
     path:'user-profile',
-    component: UserProductsComponent
+    component: UserProductsComponent,
+    canActivate: [AuthGuard]
   },
   {
     path:'new-post',
-    component: UserPostProductComponent
+    component: UserPostProductComponent,
+    canActivate: [AuthGuard]
   }
 ];
 
