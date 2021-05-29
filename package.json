@@ -20,6 +20,7 @@
     "@angular/platform-browser-dynamic": "~11.2.10",
     "@angular/router": "~11.2.10",
     "autoprefixer": "^10.2.6",
+    "axios": "^0.21.1",
     "postcss": "^8.3.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",

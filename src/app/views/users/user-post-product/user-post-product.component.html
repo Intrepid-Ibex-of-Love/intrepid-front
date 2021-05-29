@@ -12,16 +12,17 @@
 
         <div class='flex items-center justify-center w-full'>
             <div class="grid grid-cols-1">
-                <input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text" placeholder="Ingresar su artículo"/>
+                <input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text" placeholder="Ingresar su artículo" [(ngModel)]="newProduct.name"/>
 
-                <textarea class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text" placeholder="Ingresa la descripción del artículo"></textarea>
+                <textarea class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text" placeholder="Ingresa la descripción del artículo" [(ngModel)]="newProduct.description"></textarea>
 
                 <div class="grid grid-cols-2">
-                    <input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text" placeholder="Día inicio"/>
+                    <input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text" placeholder="Día inicio"[(ngModel)]="newProduct.day_start"/>
     
-                    <input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text" placeholder="Día fin"/>
+                    <input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text" placeholder="Día fin" [(ngModel)]="newProduct.day_finish"/>
                 </div> 
             </div>
+            <button class="rounded-full bg-purple-700 p-5 text-white" (click)="create()">Guardar</button>
         </div>
     </div>
 </div>
