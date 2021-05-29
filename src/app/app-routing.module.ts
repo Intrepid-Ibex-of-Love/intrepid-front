@@ -1,15 +1,26 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BannerUserComponent } from './components/banner-user/banner-user.component';
 import { HomeComponent } from './views/home/home.component';
 import { UserPostProductComponent } from './views/users/user-post-product/user-post-product.component';
 import { UserProductsComponent } from './views/users/user-products/user-products.component';
-
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
     path:'',
-    component: HomeComponent
+    component: HomeComponent,
+    canActivate: [AuthGuard]
+  },
+  /*Login */
+  {
+    path:'sign-in',
+    component: RegisterComponent
+  },
+  {
+    path:'login',
+    component: LoginComponent
   },
   /*Rutas para users*/
   {
