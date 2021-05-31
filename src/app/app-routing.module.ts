@@ -25,7 +25,7 @@ const routes: Routes = [
   {
     path:'user-profile',
     component: UserProductsComponent,
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
   {
     path:'new-post',

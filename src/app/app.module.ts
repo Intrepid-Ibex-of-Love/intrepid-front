@@ -16,6 +16,7 @@ import { InputEmailComponent } from './components/input-email/input-email.compon
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { HeaderComponent } from './components/header/header.component';
+import { InputPasswordComponent } from './components/input-password/input-password.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { HeaderComponent } from './components/header/header.component';
     RegisterComponent,
     LoginComponent,
     HomeComponent,
-    InputEmailComponent
+    InputEmailComponent,
+    InputPasswordComponent
   ],
   imports: [
     BrowserModule,

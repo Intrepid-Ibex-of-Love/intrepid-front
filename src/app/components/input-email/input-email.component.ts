@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, EventEmitter, Output, OnInit} from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
 
@@ -16,10 +16,28 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./input-email.component.css']
 })
 export class InputEmailComponent{
-   emailFormControl = new FormControl('', [
+  loginForm = {email: '', password: ''}
+  @Output() newItemEvent = new EventEmitter<string>();
+
+  addNewItem(value: string) {
+    this.newItemEvent.emit(value);
+  }
+  emailFormControl = new FormControl('', [
     Validators.required,
     Validators.email,
-  ]); 
+  ]);
+
+  constructor (){
+    console.log(this.loginForm.email)
+  }
+
+  ngOninit(){
+    console.log(this.loginForm.email)
+  }
+  // processData() {
+  //   console.log(this.loginForm.email)
+  //   this.newItemEvent.emit(this.loginForm.email);
+  // }
 
   matcher = new MyErrorStateMatcher();
 
