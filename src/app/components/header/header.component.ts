@@ -15,5 +15,6 @@ export class HeaderComponent implements OnInit {
   }
 
   clicked = () => this.loginState = !this.loginState;
+  clickedHome = () => this.loginState = false;
 
 }
