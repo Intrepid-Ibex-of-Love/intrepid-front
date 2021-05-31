@@ -16,10 +16,10 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./input-email.component.css']
 })
 export class InputEmailComponent{
-  emailFormControl = new FormControl('', [
+   emailFormControl = new FormControl('', [
     Validators.required,
     Validators.email,
-  ]);
+  ]); 
 
   matcher = new MyErrorStateMatcher();
 

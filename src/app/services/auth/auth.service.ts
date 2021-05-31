@@ -5,7 +5,7 @@ import axios from 'axios';
   providedIn: 'root'
 })
 export class AuthService {
-  apiURL = "http://localhost3000/"
+  apiURL = "http://localhost:3002/"
 
   constructor() { }
 
