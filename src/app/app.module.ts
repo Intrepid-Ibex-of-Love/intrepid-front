@@ -15,8 +15,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InputEmailComponent } from './components/input-email/input-email.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { HeaderComponent } from './components/header/header.component';
 import { InputPasswordComponent } from './components/input-password/input-password.component';
+import { ToastrModule } from 'ngx-toastr';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { InputPasswordComponent } from './components/input-password/input-passwo
     MatInputModule,
     MatFormFieldModule,
     MatInputModule,
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
