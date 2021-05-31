@@ -22,7 +22,7 @@ export class UserPostProductComponent implements OnInit {
   create() {
     this.productsService.create(this.newProduct)
       .then(newProuct => {
-        this.toastr.success('Se ha creado con éxito el artículo ' + this.newProduct.name);
+        this.toastr.success('Se ha creado con éxito el producto ' + this.newProduct.name);
       }).catch(e => {
         this.toastr.error('Ha ocurrido un error con la creación del producto ' + this.newProduct.name);
       });
