@@ -12,10 +12,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { InputEmailComponent } from './components/input-email/input-email.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { InputPasswordComponent } from './components/input-password/input-password.component';
 import { ToastrModule } from 'ngx-toastr';
 import { HeaderComponent } from './components/header/header.component';
 
@@ -30,9 +28,7 @@ import { HeaderComponent } from './components/header/header.component';
     UserPostProductComponent,
     RegisterComponent,
     LoginComponent,
-    HomeComponent,
-    InputEmailComponent,
-    InputPasswordComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
