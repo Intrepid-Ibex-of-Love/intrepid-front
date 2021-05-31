@@ -1,3 +1,3 @@
-export interface ProductMedia{
+export interface Medias{
     uri: string
 }

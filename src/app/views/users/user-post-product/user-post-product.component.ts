@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { ProductMedia } from 'src/app/models/productMedia.model';
+import { Medias } from 'src/app/models/productMedia.model';
 import { Product } from 'src/app/models/products.model';
 import { ProductsService } from 'src/app/services/products/products.service';
 
@@ -15,9 +15,7 @@ export class UserPostProductComponent implements OnInit {
 
   constructor(private productsService: ProductsService, private toastr: ToastrService) { }
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void { }
 
   create() {
     this.productsService.create(this.newProduct)
@@ -27,15 +25,15 @@ export class UserPostProductComponent implements OnInit {
         this.toastr.error('Ha ocurrido un error con la creación del producto ' + this.newProduct.name);
       });
   }
+  
   processFile(event:any) {
     const size = event.target.files.length;
     for (let i = 0; i < size; i++) {
       const reader = new FileReader();
       reader.onload = (event:any) => {
         console.log(event.target.result);
-        //event.target.result
-        const media : ProductMedia = {uri : 'a'};
-          this.newProduct.medias.push(media); 
+        const media : Medias = {uri: event.target.result};
+        this.newProduct.medias.push(media); 
       }
       reader.readAsDataURL(event.target.files[i]);
     }
