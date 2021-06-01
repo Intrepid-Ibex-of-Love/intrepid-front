@@ -7,16 +7,24 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class AuthService {
-  apiURL = environment.apiUrl
+  apiURL = "http://localhost:3002/"
+  isAuthenticate = false;
 
   constructor() { }
 
   async login(loginData: {email: string, password: string}){
     return axios.post( this.apiURL+'login', loginData)
-    .then(res => res.data);
+    .then(res => {
+      // console.log(res.data);
+      this.isAuthenticate = true;
+      return this.isAuthenticate;
+    });
   }
-  async register(registerData: {name: string, lastname: string, email: string, password: string}){
-    return axios.post( this.apiURL+'login', registerData)
-    .then(res => res.data);
+  async register(registerData: {name: string, last_name: string,post_code: string, email: string, password: string}){
+    return axios.post( this.apiURL+'register', registerData)
+    .then(res => {
+      this.isAuthenticate = true;
+      return this.isAuthenticate;
+    });
   }
 }

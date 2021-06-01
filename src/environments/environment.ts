@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   environmentName:'TESTING',
-  apiUrl:'https://intrepid-database.czzf0jffkukv.eu-west-1.rds.amazonaws.com/'
+  // apiUrl:'https://intrepid-database.czzf0jffkukv.eu-west-1.rds.amazonaws.com/'
+  // apiUrl: 'localhost:3002/'
 };
 
 /*
