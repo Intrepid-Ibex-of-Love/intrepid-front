@@ -22,6 +22,9 @@ export class AuthService {
   }
   async register(registerData: {name: string, last_name: string,post_code: string, email: string, password: string}){
     return axios.post( this.apiURL+'register', registerData)
-    .then(res => res.data);
+    .then(res => {
+      this.isAuthenticate = true;
+      return this.isAuthenticate;
+    });
   }
 }
