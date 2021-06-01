@@ -42,15 +42,11 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    console.log(this.passwordFormControl)
-    console.log(this.loginForm)
     this.authService.login(this.loginForm)
       .then(newUser => {
         this.router.navigate(['../','user-profile'])
         .then(nav => {
-          console.log(nav); // true if navigation is successful
         }, err => {
-          console.log(err) // when there's an error
         });
       }).catch(e => {
         e.error(403);
