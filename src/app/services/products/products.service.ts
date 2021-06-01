@@ -11,7 +11,7 @@ export class ProductsService {
   constructor() { }
 
   getAllProducts(){
-    return axios.get(this.apiURL).then(products => products.data.results);
+    return axios.get(this.apiURL).then(products => products.data);
   }
   
   create(product : Product){
