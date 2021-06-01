@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { BannerUserComponent } from './components/banner-user/banner-user.component';
 import { HomeComponent } from './views/home/home.component';
 import { UserPostProductComponent } from './views/users/user-post-product/user-post-product.component';
-import { UserProductsComponent } from './views/users/user-products/user-products.component';
+import { UserProfileComponent } from './views/users/user-profile/user-profile.component';
 
 
 const routes: Routes = [
@@ -14,7 +14,7 @@ const routes: Routes = [
   /*Rutas para users*/
   {
     path:'user-profile',
-    component: UserProductsComponent
+    component: UserProfileComponent
   },
   {
     path:'new-post',
