@@ -6,16 +6,16 @@ import { FooterComponent } from './components/footer/footer.component';
 
 import { HomeComponent } from './views/home/home.component';
 import { BannerUserComponent } from './components/banner-user/banner-user.component';
-import { UserProductsComponent } from './views/users/user-products/user-products.component';
+import { UserProductsComponent } from './views/users/user-profile/user-profile.component';
 import { UserPostProductComponent } from './views/users/user-post-product/user-post-product.component';
-import { RegisterComponent } from './components/register/register.component';
-import { LoginComponent } from './components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ToastrModule } from 'ngx-toastr';
 import { HeaderComponent } from './components/header/header.component';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
