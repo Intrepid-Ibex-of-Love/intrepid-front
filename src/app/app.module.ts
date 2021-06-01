@@ -5,15 +5,15 @@ import { AppComponent } from './app.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './views/home/home.component';
 import { BannerUserComponent } from './components/banner-user/banner-user.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserPostProductComponent } from './views/users/user-post-product/user-post-product.component';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ToastrModule } from 'ngx-toastr';
 import { HeaderComponent } from './components/header/header.component';
-import { RegisterComponent } from './components/register/register.component';
-import { LoginComponent } from './components/login/login.component';
 import { UserProfileComponent } from './views/users/user-profile/user-profile.component';
 
 @NgModule({
@@ -26,7 +26,8 @@ import { UserProfileComponent } from './views/users/user-profile/user-profile.co
     UserPostProductComponent,
     RegisterComponent,
     LoginComponent,
-    UserProfileComponent,
+    HomeComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +38,6 @@ import { UserProfileComponent } from './views/users/user-profile/user-profile.co
     MatFormFieldModule,
     MatInputModule,
     MatFormFieldModule,
-    MatInputModule,
     ToastrModule.forRoot(),
   ],
   providers: [],
