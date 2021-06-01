@@ -14,9 +14,12 @@ export class AuthService {
 
   async login(loginData: {email: string, password: string}){
     return axios.post( this.apiURL+'login', loginData)
-    .then(res => {
-      // console.log(res.data);
-      this.isAuthenticate = true;
+    .then(res => { 
+        let user = res.data.user;
+        let token = res.data.token;
+        localStorage.setItem('token',token);
+        localStorage.setItem('user', JSON.stringify(user));
+        this.isAuthenticate = true;
       return this.isAuthenticate;
     });
   }
