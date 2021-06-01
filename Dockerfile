@@ -1,6 +1,8 @@
 # Create image based off of the official Node 10 image
 FROM node:16 as builder
 
+WORKDIR /app
+
 # Copy dependency definitions
 COPY package*.json ./
 
