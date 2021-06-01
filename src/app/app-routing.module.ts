@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { BannerUserComponent } from './components/banner-user/banner-user.component';
 import { HomeComponent } from './views/home/home.component';
 import { UserPostProductComponent } from './views/users/user-post-product/user-post-product.component';
-import { UserProfileComponent } from './views/users/user-profile/user-profile.component';
 
 
 const routes: Routes = [
@@ -12,10 +11,6 @@ const routes: Routes = [
     component: HomeComponent
   },
   /*Rutas para users*/
-  {
-    path:'user-profile',
-    component: UserProfileComponent
-  },
   {
     path:'new-post',
     component: UserPostProductComponent

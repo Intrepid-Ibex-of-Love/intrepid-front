@@ -10,7 +10,6 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { HeaderComponent } from './components/header/header.component';
-import { UserProfileComponent } from './views/users/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +19,6 @@ import { UserProfileComponent } from './views/users/user-profile/user-profile.co
     HomeComponent,
     BannerUserComponent,
     UserPostProductComponent,
-    UserProfileComponent
   ],
   imports: [
     BrowserModule,
