@@ -8,6 +8,7 @@ export class ProductsService {
 
   apiURL= 'http://localhost:3002/products'
 
+
   constructor() { }
 
   getAllProducts(){
@@ -16,5 +17,9 @@ export class ProductsService {
   
   create(product : Product){
     return axios.post(this.apiURL, product).then(res => res.data).catch(e => console.error(e));
+  }
+
+  getAllProductsById(id : number){
+      return axios.get(this.apiURL+"/user/"+id).then(res => res.data).catch(e => console.error(e));
   }
 }

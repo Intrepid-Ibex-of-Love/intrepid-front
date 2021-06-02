@@ -11,7 +11,7 @@ import { ProductsService } from 'src/app/services/products/products.service';
 })
 export class UserPostProductComponent implements OnInit {
 
-  newProduct: Product = { name: '', description: '', day_start: new Date, day_finish: new Date, medias: [], userId: 0 }
+  newProduct: Product = { id: 0, name: '', description: '', day_start: new Date, day_finish: new Date, medias: [], userId: 0 }
 
   constructor(private productsService: ProductsService, private toastr: ToastrService) { }
 

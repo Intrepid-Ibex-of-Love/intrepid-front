@@ -21,9 +21,8 @@ export class UserProfileComponent implements OnInit {
     }
 
   ngOnInit(): void {
-    this.productsService.getAllProducts().then(data => {
+    this.productsService.getAllProductsById(this.user.id).then(data => {
       this.allProducts = data;
-      console.log(this.allProducts);
     });
     
   }
