@@ -31,18 +31,23 @@ export class RegisterComponent implements OnInit {
 
   NameFormControl = new FormControl('', [
     Validators.required,
-    Validators.maxLength(50)
+    Validators.pattern('^[a-zA-Z ]{2,254}'),
+    Validators.maxLength(50),
+    Validators.minLength(3)
   ]);
 
   lastNameFormControl = new FormControl('', [
     Validators.required,
+    Validators.pattern('^[a-zA-Z ]{2,254}'),
     Validators.maxLength(50)
   ]);
 
   postCodeFormControl = new FormControl('', [
     Validators.required,
     Validators.maxLength(5),
-    Validators.minLength(5)
+    Validators.minLength(5),
+    Validators.pattern('((0[1-9]|5[0-2])|[1-4][0-9])[0-9]{3}'),
+
   ]);
 
   emailFormControl = new FormControl('', [
