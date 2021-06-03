@@ -19,6 +19,7 @@ import { UserPostProductComponent } from './views/users/user-post-product/user-p
 import { HeaderComponent } from './components/header/header.component';
 import { UserProfileComponent } from './views/users/user-profile/user-profile.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { AdminsComponent } from './views/admins/admins.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { MenuComponent } from './components/menu/menu.component';
     LoginComponent,
     HomeComponent,
     UserProfileComponent,
-    MenuComponent
+    MenuComponent,
+    AdminsComponent
   ],
   imports: [
     BrowserModule,
