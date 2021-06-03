@@ -27,7 +27,8 @@ const routes: Routes = [
   {
     path:'user-profile',
     component: UserProfileComponent,
-    canActivate: [AuthGuard]
+    //Quitar al hacer merge
+    //canActivate: [AuthGuard]
   },
   {  
     path:'new-post',

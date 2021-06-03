@@ -1,9 +1,12 @@
 <header class="border-b-2 border-purple-700">
     <nav class="flex flex-wrap items-center justify-between p-5">
         <a [routerLink]="['']" (click)=this.clickedHome() class="text-purple-700 font-bold text-2xl">Comunidad</a>
-        <div *ngIf="!this.loginState">
+        <div *ngIf="false">
             <a [routerLink]="['sign-in']" class="text-black mr-4" (click)=this.clicked()>Regístrate</a>
             <a [routerLink]="['login']" class="bg-purple-700 rounded-full py-3 px-6 text-white" (click)=this.clicked()>Iniciar sesión</a>
+        </div>
+        <div *ngIf="true">
+            <app-banner-user></app-banner-user>
         </div>
     </nav>
 </header>

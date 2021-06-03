@@ -1,11 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { HomeComponent } from './views/home/home.component';
-import { BannerUserComponent } from './components/banner-user/banner-user.component';
-import { UserPostProductComponent } from './views/users/user-post-product/user-post-product.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -13,8 +8,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ToastrModule } from 'ngx-toastr';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+
+import { AppComponent } from './app.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HomeComponent } from './views/home/home.component';
+import { BannerUserComponent } from './components/banner-user/banner-user.component';
+import { UserPostProductComponent } from './views/users/user-post-product/user-post-product.component';
 import { HeaderComponent } from './components/header/header.component';
 import { UserProfileComponent } from './views/users/user-profile/user-profile.component';
+import { MenuComponent } from './components/menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +31,8 @@ import { UserProfileComponent } from './views/users/user-profile/user-profile.co
     RegisterComponent,
     LoginComponent,
     HomeComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +42,9 @@ import { UserProfileComponent } from './views/users/user-profile/user-profile.co
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
+    MatMenuModule,
     MatFormFieldModule,
+    MatIconModule,
     ToastrModule.forRoot(),
   ],
   providers: [],
