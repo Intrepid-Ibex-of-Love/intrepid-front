@@ -8,12 +8,15 @@
             class="border-0 p-4 placeholder-gray-450 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full">
             <mat-label class="text-purple-700">Nombre</mat-label>
             <input matInput placeholder="Nombre" [formControl]="NameFormControl" [errorStateMatcher]="matcher"
-              [(ngModel)]="this.registerForm.name"   pattern="[a-zA-Z]*" />
+            [(ngModel)]="this.registerForm.name"/>
             <mat-hint>Ha ocurrido un error</mat-hint>
-            <mat-error *ngIf="NameFormControl.hasError('maxLength')">El nombre tiene que tener un máximo de 50 carcteres </mat-error>
+            <mat-error *ngIf="NameFormControl.hasError('maxlength')">El nombre tiene que tener un máximo de 50 caráteres </mat-error>
+            <mat-error *ngIf="NameFormControl.hasError('minlength')">El nombre tiene que tener un mínimo de 3 caráteres </mat-error>
+            <mat-error *ngIf="NameFormControl.status=='INVALID' && !lastNameFormControl.hasError('required') || !NameFormControl.hasError('maxlength') || !NameFormControl.hasError('minlength')">Formato de nombre no válido. Ejemplo:Paco</mat-error>
             <mat-error *ngIf="NameFormControl.hasError('required')">
               El Nombre es <strong>requerido</strong>
             </mat-error>
+            <!-- <mat-error *ngIf="NameFormControl.valid || NameFormControl.pristine">Formato de nombre no válido. ejemplo:Paco</mat-error> -->
           </mat-form-field>
         </div>
         <div class="relative w-full mb-3">
@@ -21,9 +24,10 @@
             class="border-0 p-4 placeholder-gray-450 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full">
             <mat-label class="text-purple-700">Apellidos</mat-label>
             <input matInput placeholder="Apellidos" [formControl]="lastNameFormControl" [errorStateMatcher]="matcher"
-              [(ngModel)]="this.registerForm.last_name" pattern="^[a-zA-Z]+(\s[a-zA-Z]+)?" />
+              [(ngModel)]="this.registerForm.last_name"  />
             <mat-hint>Ha ocurrido un error</mat-hint>
-            <mat-error *ngIf="lastNameFormControl.hasError('maxLength')">El apellido tiene que tener un máximo de 50 carcteres </mat-error>
+            <mat-error *ngIf="lastNameFormControl.hasError('maxlength')">El apellido tiene que tener un máximo de 50 carcteres </mat-error>
+            <mat-error *ngIf="lastNameFormControl.status=='INVALID' && !lastNameFormControl.hasError('required')">Formato Apellidos no válido. Ejemplo:Boso Cocreto</mat-error>
             <mat-error *ngIf="lastNameFormControl.hasError('required')">
               El apellido es <strong>requerido</strong>
             </mat-error>
@@ -55,10 +59,11 @@
             <input matInput placeholder="Código postal" [formControl]="postCodeFormControl" [errorStateMatcher]="matcher"
               [(ngModel)]="this.registerForm.post_code" />
             <mat-hint>Ha ocurrido un error</mat-hint>
-            <mat-error *ngIf="postCodeFormControl.hasError('maxLength')|| postCodeFormControl.hasError('minLength')">El código postal tiene que tener 5 carcteres </mat-error>
+            <!-- <mat-error *ngIf="postCodeFormControl.hasError('maxlength') || postCodeFormControl.hasError('minlength')">El código postal tiene que tener 5 carcteres </mat-error> -->
             <mat-error *ngIf="postCodeFormControl.hasError('required')">
               El código postal es <strong>requerido</strong>
             </mat-error>
+            <mat-error *ngIf="postCodeFormControl.status=='INVALID' && !postCodeFormControl.hasError('required')">Formato no válido. Ejemplo:34200</mat-error>
           </mat-form-field>
         </div>
         <div class="relative w-full mb-3">
@@ -71,7 +76,7 @@
           <mat-error *ngIf="passwordFormControl.hasError('minlength')">La contraseña tiene que tener un mínimo de
             {{minPw}}
             carcteres </mat-error>
-          <mat-error *ngIf="passwordFormControl.hasError('maxLength')">La contraseña tiene que tener un máximo de
+          <mat-error *ngIf="passwordFormControl.hasError('maxlength')">La contraseña tiene que tener un máximo de
             {{maxPw}}
             carcteres </mat-error>
           <mat-error *ngIf="passwordFormControl.hasError('required')">
@@ -81,7 +86,7 @@
         </div>
         <div class="text-center mt-6">
           <button type="submit" class="bg-purple-700 hover:bg-purple-500 text-white font-bold py-2 px-4 rounded"
-            (click)="register()">Enviar</button>
+            (click)="register()" ng-disable=" NameFormControl.valid " >Enviar</button>
         </div>
         <div class="text-center mt-6">
           <div class="w-full text-right">
