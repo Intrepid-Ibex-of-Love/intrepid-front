@@ -1,5 +1,32 @@
 <div class="container h-screen mx-auto py-20">
 
-    <h1 class="text-purple-700">Bienvenido de nuevo {{user.name}}</h1>
+    <div class="flex flex-wrap items-center justify-between">
+        <h1 class="text-purple-700">Bienvenido de nuevo {{user.name}}</h1>
+        <div>
+            <a [routerLink]="['/new-post']" class="bg-purple-700 rounded-full py-3 px-6 text-white">Subir producto</a>
+        </div>
+    </div>
+
+    <div class="flex flex-col">
+        <h2>Mis artículos</h2>
+        <span>Se han encontrado un total de {{allProducts.length}} artículos</span>
+    </div>
+
+    <div class="lg:flex items-center container mx-auto my-auto">
+
+        <div *ngFor="let product of allProducts" class="lg:m-4 shadow-md  rounded-3xl hover:shadow-lg hover:bg-gray-100  bg-white my-12 mx-8">
+            <img src="https://picsum.photos/id/29/2106/1404" class="rounded-t-3xl" alt="" class="overflow-hidden">
+            <div class="p-4">
+                <h3 class="font-medium text-purple-700 text-lg my-2 uppercase">{{product.name}}</h3>
+                <p class="text-left">{{product.description}}</p>
+                <div class="mt-5 flex">
+                    
+                    <a class="hover:bg-purple-700 rounded-full py-2 px-3 font-semibold hover:text-white bg-purple-700 text-white">Editar</a>
+                    <a class="hover:bg-purple-700 rounded-full py-2 px-3 font-semibold hover:text-white bg-purple-700 text-white">Eliminar</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
 
 </div>
