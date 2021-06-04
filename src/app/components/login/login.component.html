@@ -4,8 +4,6 @@
     <div class="mt-10">
       <form method="POST" action="" autocomplete="">
         <div class="relative w-full mb-3">
-          <!-- <app-input-email (newItemEvent)="addItem($event)" ></app-input-email> -->
-          <!-- <input type="email" [(ngModel)]="this.loginForm.email" name="email" class="border-0 p-4 placeholder-gray-450 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full" placeholder="Email" required="required" style="transition: all 0.10s ease 0s;" /> -->
           <mat-form-field
             class="border-0 p-4 placeholder-gray-450 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full">
             <mat-label class="text-purple-700">Email</mat-label>
@@ -13,9 +11,9 @@
               [(ngModel)]="this.loginForm.email" />
             <mat-hint>Ha ocurrido un error</mat-hint>
             <mat-error *ngIf="
-                          emailFormControl.hasError('email') &&
-                          !emailFormControl.hasError('required')
-                        ">
+            emailFormControl.hasError('email') &&
+                                !emailFormControl.hasError('required')
+                              ">
               Por favor ingresa un formato de email válido
             </mat-error>
             <mat-error *ngIf="emailFormControl.hasError('required')">
@@ -23,6 +21,8 @@
             </mat-error>
           </mat-form-field>
         </div>
+
+
         <div class="relative w-full mb-3">
           <!-- <app-input-password  ></app-input-password> -->
           <!-- <input type="password" [(ngModel)]="this.loginForm.password" name="password" class="border-0 p-4 placeholder-gray-450 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full" placeholder="Password" required="required" style="transition: all 0.10s ease 0s;" /> -->
