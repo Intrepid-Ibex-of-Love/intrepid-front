@@ -67,7 +67,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
   register() {
-    console.log(this.registerForm)
+    // if()
     this.authService.register(this.registerForm)
       .then(newUser => {
         this.router.navigate(['../','user-profile'])
