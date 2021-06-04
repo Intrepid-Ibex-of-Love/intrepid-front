@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { AuthGuard } from './guards/auth.guard';
 import { HomeComponent } from './views/home/home.component';
 import { UserPostProductComponent } from './views/users/user-post-product/user-post-product.component';
 import { UserProfileComponent } from './views/users/user-profile/user-profile.component';
@@ -27,12 +28,12 @@ const routes: Routes = [
   {
     path:'user-profile',
     component: UserProfileComponent,
-    //canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {  
     path:'new-post',
     component: UserPostProductComponent,
-    //canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   }
 ];
 
