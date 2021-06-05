@@ -1,6 +1,6 @@
 export interface Product{
     id: number,
-    name: string,
+    product_name: string,
     description: string,
     day_start: Date,
     day_finish: Date,

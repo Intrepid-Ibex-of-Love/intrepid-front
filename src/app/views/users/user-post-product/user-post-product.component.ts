@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Medias } from 'src/app/models/productMedia.model';
 import { Product } from 'src/app/models/products.model';
+import { User } from 'src/app/models/user.model';
 import { ProductsService } from 'src/app/services/products/products.service';
 
 @Component({
@@ -11,18 +12,28 @@ import { ProductsService } from 'src/app/services/products/products.service';
 })
 export class UserPostProductComponent implements OnInit {
 
-  newProduct: Product = { id: 0, name: '', description: '', day_start: new Date, day_finish: new Date, medias: [], userId: 0 }
+  newProduct: Product = { id: 0, product_name: '', description: '', day_start: new Date, day_finish: new Date, medias: [], userId: 0 }
+  userLogin;
 
-  constructor(private productsService: ProductsService, private toastr: ToastrService) { }
+  constructor(private productsService: ProductsService, private toastr: ToastrService) {
+    this.userLogin = JSON.parse(localStorage.getItem('user') || '{}');
+  }
 
   ngOnInit(): void { }
 
   create() {
+    this.newProduct.userId = this.userLogin.id;
     this.productsService.create(this.newProduct)
       .then(newProuct => {
-        this.toastr.success('Se ha creado con éxito el producto ' + this.newProduct.name);
+        console.log(this.newProduct);
+        if(!this.newProduct.product_name || !this.newProduct.description){
+          this.toastr.error('Ha ocurrido un error con la creación del producto ' + this.newProduct.product_name);    
+        }else{
+          this.toastr.success('Se ha creado con éxito el producto ' + this.newProduct.product_name);
+
+        }
       }).catch(e => {
-        this.toastr.error('Ha ocurrido un error con la creación del producto ' + this.newProduct.name);
+        this.toastr.error('Ha ocurrido un error con la creación del producto ' + this.newProduct.product_name);
       });
   }
   
