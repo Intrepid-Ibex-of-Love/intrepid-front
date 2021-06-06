@@ -2,20 +2,20 @@
   <img src="https://via.placeholder.com/50"class="rounded-full" alt="">
 </button>
 <mat-menu #menu="matMenu" class="bg-gray-100">
-  <a routerLink='user-profile'>
+  <a [routerLink]="['user-profile']">
     <button mat-menu-item>
       <mat-icon [ngStyle]="{'color':'rgb(89,0,207)'}">person</mat-icon>
       <span class="text-black">Perfil</span>
     </button>
   </a>
-  <a routerLink='settings'>
+  <a [routerLink]="['settings']">
     <button mat-menu-item>
       <mat-icon [ngStyle]="{'color':'rgb(89,0,207)'}">settings</mat-icon>
       <span class="text-black">Configuración</span>
     </button>
   </a>
-  <a routerLink=''>
-    <button mat-menu-item>
+  <a>
+    <button mat-menu-item (click)="this.logOut()">
       <mat-icon [ngStyle]="{'color':'rgb(89,0,207)'}">logout</mat-icon>
       <span class="text-black">Cerrar sesión</span>
     </button>

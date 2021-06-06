@@ -14,12 +14,11 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 }
 
 @Component({
-  selector: 'app-settings',
-  templateUrl: './settings.component.html',
-  styleUrls: ['./settings.component.css']
+  selector: 'app-edit-user',
+  templateUrl: './edit-user.component.html',
+  styleUrls: ['./edit-user.component.css']
 })
-
-export class SettingsComponent implements OnInit {
+export class EditUserComponent implements OnInit {
 
   minPw = 8;
   maxPw = 10;
@@ -68,14 +67,6 @@ export class SettingsComponent implements OnInit {
   }
 
   update() {
-    this.user.updateUser(this.userData)
-      .then(updatedUser => {
-        if (!updatedUser) {
-          this.toastr.error('Error al actualizar datos');    
-        } else {
-          this.toastr.success('Se han actualizado los datos');
-        }
-      })
-      .catch(e => {console.error(e)});
+    
   }
 }
