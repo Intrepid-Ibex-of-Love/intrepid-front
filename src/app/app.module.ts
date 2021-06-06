@@ -10,6 +10,8 @@ import { MatInputModule } from '@angular/material/input';
 import { ToastrModule } from 'ngx-toastr';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
 
 import { AppComponent } from './app.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -47,6 +49,8 @@ import { AdminsComponent } from './views/admins/admins.component';
     MatMenuModule,
     MatFormFieldModule,
     MatIconModule,
+    MatDividerModule,
+    MatListModule,
     ToastrModule.forRoot(),
   ],
   providers: [],
