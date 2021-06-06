@@ -12,7 +12,7 @@
             <mat-hint>Ha ocurrido un error</mat-hint>
             <mat-error *ngIf="NameFormControl.hasError('maxlength')">El nombre tiene que tener un máximo de 50 caráteres </mat-error>
             <mat-error *ngIf="NameFormControl.hasError('minlength')">El nombre tiene que tener un mínimo de 3 caráteres </mat-error>
-            <mat-error *ngIf="NameFormControl.status=='INVALID' && !lastNameFormControl.hasError('required') || !NameFormControl.hasError('maxlength') || !NameFormControl.hasError('minlength')">Formato de nombre no válido. Ejemplo:Paco</mat-error>
+            <mat-error *ngIf="NameFormControl.status=='INVALID' && !(NameFormControl.hasError('required') || NameFormControl.hasError('maxlength') || NameFormControl.hasError('minlength'))">Formato de nombre no válido. Ejemplo:Paco</mat-error>
             <mat-error *ngIf="NameFormControl.hasError('required')">
               El Nombre es <strong>requerido</strong>
             </mat-error>
