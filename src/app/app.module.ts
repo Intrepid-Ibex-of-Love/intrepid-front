@@ -22,6 +22,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { UserProfileComponent } from './views/users/user-profile/user-profile.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { AdminsComponent } from './views/admins/admins.component';
+import { SettingsComponent } from './components/settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { AdminsComponent } from './views/admins/admins.component';
     HomeComponent,
     UserProfileComponent,
     MenuComponent,
-    AdminsComponent
+    AdminsComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,

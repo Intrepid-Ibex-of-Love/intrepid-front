@@ -8,6 +8,12 @@
       <span class="text-black">Perfil</span>
     </button>
   </a>
+  <a routerLink='settings'>
+    <button mat-menu-item>
+      <mat-icon [ngStyle]="{'color':'rgb(89,0,207)'}">settings</mat-icon>
+      <span class="text-black">Configuración</span>
+    </button>
+  </a>
   <a routerLink=''>
     <button mat-menu-item>
       <mat-icon [ngStyle]="{'color':'rgb(89,0,207)'}">logout</mat-icon>
@@ -16,4 +22,6 @@
   </a>
 </mat-menu>
 
-<!-- TODO: Enlazar botones con componentes -->
+<!-- TODO: 
+  - Hacer que el botón de cerrar sesión borre el token
+-->
