@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import axios from 'axios';
 import { environment } from 'src/environments/environment';
 
-
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthService {
   apiURL = "http://localhost:3002/"
   isAuthenticate = false;
@@ -30,4 +30,6 @@ export class AuthService {
       return this.isAuthenticate;
     });
   }
+
+  authState = () => this.isAuthenticate;
 }

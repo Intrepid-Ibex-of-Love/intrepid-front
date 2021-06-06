@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../services/auth/auth.service'
 
 @Component({
   selector: 'app-header',
@@ -9,12 +10,10 @@ export class HeaderComponent implements OnInit {
 
   loginState: boolean = false;
 
-  constructor() { }
+  constructor(private authService: AuthService) {
+    this.loginState = authService.authState();
+  }
 
   ngOnInit(): void {
   }
-
-  clicked = () => this.loginState = !this.loginState;
-  clickedHome = () => this.loginState = false;
-
 }
