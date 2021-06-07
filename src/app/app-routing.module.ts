@@ -37,12 +37,12 @@ const routes: Routes = [
   {  
     path:'settings',
     component: SettingsComponent,
-    //canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {  
     path:'edit-user',
     component: EditUserComponent,
-    //canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
   }
 ];
 
