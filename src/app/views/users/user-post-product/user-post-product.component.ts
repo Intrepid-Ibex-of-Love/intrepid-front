@@ -27,6 +27,7 @@ export class UserPostProductComponent implements OnInit {
       .then(newProuct => {
         console.log(this.newProduct);
         if(!this.newProduct.product_name || !this.newProduct.description){
+          console.log(this.newProduct.product_name);
           this.toastr.error('Ha ocurrido un error con la creación del producto ' + this.newProduct.product_name);    
         }else{
           this.toastr.success('Se ha creado con éxito el producto ' + this.newProduct.product_name);

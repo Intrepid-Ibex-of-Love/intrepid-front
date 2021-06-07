@@ -17,7 +17,6 @@ export class UserProfileComponent implements OnInit {
 
   constructor(private productsService: ProductsService, private toastr: ToastrService) { 
       let userLogin = JSON.parse(localStorage.getItem('user') || '{}');
-      console.log(userLogin);
       let token = localStorage.getItem('token');
       this.user = userLogin;
 
