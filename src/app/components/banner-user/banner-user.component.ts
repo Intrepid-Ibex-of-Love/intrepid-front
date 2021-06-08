@@ -18,4 +18,5 @@ export class BannerUserComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  displayName = () => this.user.name;
 }

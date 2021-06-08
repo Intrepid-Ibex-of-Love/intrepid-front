@@ -22,6 +22,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { UserProfileComponent } from './views/users/user-profile/user-profile.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { AdminsComponent } from './views/admins/admins.component';
+import { SettingsComponent } from './views/settings/settings.component';
+import { EditUserComponent } from './views/settings/edit-user/edit-user.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { AdminsComponent } from './views/admins/admins.component';
     HomeComponent,
     UserProfileComponent,
     MenuComponent,
-    AdminsComponent
+    AdminsComponent,
+    SettingsComponent,
+    EditUserComponent
   ],
   imports: [
     BrowserModule,

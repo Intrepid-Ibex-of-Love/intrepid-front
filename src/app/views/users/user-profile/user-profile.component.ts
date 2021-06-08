@@ -17,14 +17,12 @@ export class UserProfileComponent implements OnInit {
 
   constructor(private productsService: ProductsService, private toastr: ToastrService) { 
       let userLogin = JSON.parse(localStorage.getItem('user') || '{}');
-      console.log(userLogin);
       let token = localStorage.getItem('token');
       this.user = userLogin;
 
     }
 
-  ngOnInit(): void {
-
+  ngOnInit(): void { 
     this.productsService.getAllProductsById(this.user.id).then(data => {
       this.allProducts = data
       console.log(this.allProducts);

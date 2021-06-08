@@ -7,16 +7,20 @@ import { User } from 'src/app/models/user.model';
 })
 export class UserService {
 
-  apiURL= 'http://localhost:3002/user'
+  apiURL= 'http://localhost:3002/'
 
   constructor() { }
 
-  getUserId(user : User){
-    return axios.get(this.apiURL+"/users/:id")
-    .then(users => {
-      
-    });
+  async getUserId(user : User) {
+    const foundUser = await  axios.get(`${this.apiURL}/users/${user.id}`)
+      .then(users => {})
+      .catch(e => console.error(e));
+    return foundUser;
   }
-
+  async deleteUser(user: User) {
+    const foundUser = await axios.delete(`${this.apiURL}/users/${user.id}`)
+        .then(e => console.log(e))
+        .catch(e => console.error(e));
+  }
 }
 

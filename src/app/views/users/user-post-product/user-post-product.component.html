@@ -1,22 +1,24 @@
-<div class="container mx-auto py-20 items-center">    
-    <div class="flex flex-wrap items-center justify-between">
-        <a class="text-purple-700" [routerLink]="['/user-profile']">Atrás</a>
-    </div>    
-
-    <form class="w-full max-w-lg">
-        <h1 class="text-purple-700">Creación de un nuevo artículo</h1>
-        <div class="grid grid-cols-1">
+<div class="flex flex-wrap items-center justify-between pt-3 pl-3.5">
+    <a mat-raised-button
+        class="rounded-full h-8 w-8 flex items-center justify-center bg-purple-700 text-white hover:bg-purple-400 " 
+        [routerLink]="['/user-profile']">
+        <mat-icon class="ml-1.5">arrow_back_ios</mat-icon>
+    </a>
+</div>
+<div class="container mx-auto h-screen py-20 px-6">     
+    <form class="mx-auto w-full max-w-lg">
+        <!-- <h1 class="text-purple-700">Creación de un nuevo artículo</h1> -->
+        <div class="grid grid-cols-1 gap-2">
             <input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text" placeholder="Ingresar su artículo" name="name" [(ngModel)]="newProduct.product_name" required/>
 
             <textarea class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text" placeholder="Ingresa la descripción del artículo" name="description" [(ngModel)]="newProduct.description" required></textarea>
 
-            <div class="grid grid-cols-2">
+            <div class="grid grid-cols-2 justify-items-center">
                 <input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="date" placeholder="Día inicio" name="day_start" required [(ngModel)]="newProduct.day_start"/>
-
                 <input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="date" placeholder="Día fin" name="dat_finish" required [(ngModel)]="newProduct.day_finish"/>
             </div> 
         </div>
-        <button class="rounded-full bg-purple-700 py-3 px-6 mt-4 w-full text-white" (click)="create()">Guardar</button>
+        <button class="rounded-full bg-purple-700 py-3 px-6 mt-4 w-full text-white hover:bg-purple-400" (click)="create()">Guardar</button>
     </form>
 
 <!--     <div class="grid grid-cols-1 mt-5 mx-7">

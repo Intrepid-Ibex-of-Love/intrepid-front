@@ -6,9 +6,8 @@ import { AuthGuard } from './guards/auth.guard';
 import { HomeComponent } from './views/home/home.component';
 import { UserPostProductComponent } from './views/users/user-post-product/user-post-product.component';
 import { UserProfileComponent } from './views/users/user-profile/user-profile.component';
-
-
-
+import { SettingsComponent } from './views/settings/settings.component';
+import { EditUserComponent } from './views/settings/edit-user/edit-user.component';
 
 const routes: Routes = [
   {
@@ -34,6 +33,16 @@ const routes: Routes = [
     path:'new-post',
     component: UserPostProductComponent,
     canActivate: [AuthGuard]
+  },
+  {  
+    path:'settings',
+    component: SettingsComponent,
+    canActivate: [AuthGuard]
+  },
+  {  
+    path:'edit-user',
+    component: EditUserComponent,
+    canActivate: [AuthGuard],
   }
 ];
 

@@ -8,12 +8,11 @@ import { AuthService } from '../../services/auth/auth.service'
 })
 export class HeaderComponent implements OnInit {
 
-  loginState: boolean = false;
-
   constructor(private authService: AuthService) {
-    this.loginState = authService.authState();
+    authService.authState();
   }
 
   ngOnInit(): void {
   }
+  getAuthState = () => this.authService.authState();
 }
