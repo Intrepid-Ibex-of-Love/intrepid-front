@@ -73,15 +73,10 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
   register() {
-    // if()
-    this.authService.register(this.registerForm)
+    const regis =this.authService.register(this.registerForm)
       .then(newUser => {
-        this.router.navigate(['../','user-profile'])
-        .then(nav => {
-          console.log(nav); // true if navigation is successful
-        }, err => {
-          console.log(err) // when there's an error
-        });
+        console.log( newUser)
+        if (!newUser) this.router.navigate(['../','user-profile']);
       }).catch(e => {
         alert('Campos incorrectos, revisa que la información sea correcta');
 
