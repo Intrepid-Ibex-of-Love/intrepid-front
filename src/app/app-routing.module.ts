@@ -27,19 +27,19 @@ const routes: Routes = [
   {
     path:'user-profile',
     component: UserProfileComponent,
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
-  {  
+  {
     path:'new-post',
     component: UserPostProductComponent,
     canActivate: [AuthGuard]
   },
-  {  
+  {
     path:'settings',
     component: SettingsComponent,
     canActivate: [AuthGuard]
   },
-  {  
+  {
     path:'edit-user',
     component: EditUserComponent,
     canActivate: [AuthGuard],

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth/auth.service';
@@ -28,6 +28,7 @@ export class RegisterComponent implements OnInit {
   constructor(private authService : AuthService, private router:Router) { }
   minPw = 8;
   maxPw = 10;
+  focus = false
 
   NameFormControl = new FormControl('', [
     Validators.required,
@@ -52,6 +53,7 @@ export class RegisterComponent implements OnInit {
 
   emailFormControl = new FormControl('', [
     Validators.required,
+    Validators.pattern(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/),
     Validators.email,
   ]);
 
@@ -60,6 +62,10 @@ export class RegisterComponent implements OnInit {
     Validators.minLength(this.minPw),
     Validators.maxLength(this.maxPw),
   ]);
+  // si alguien sabe como hacer la validaciones con formGroup le invito a cerveza
+  // formGroup = this.fb.group({
+  //   email: [Validators.required,Validators.pattern(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/),Validators.email]
+  // })
 
   matcher = new MyErrorStateMatcher();
 
@@ -77,7 +83,7 @@ export class RegisterComponent implements OnInit {
           console.log(err) // when there's an error
         });
       }).catch(e => {
-        e.error(403);
+        alert('Campos incorrectos, revisa que la información sea correcta');
 
       });
   }
