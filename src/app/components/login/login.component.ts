@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
         }, err => {
         });
       }).catch(e => {
-        e.error(403);
+        alert('usuario o contraseña incorrectos');
 
       });
   }
