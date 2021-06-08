@@ -29,14 +29,10 @@
             <input matInput placeholder="Apellidos" [formControl]="lastNameFormControl" [errorStateMatcher]="matcher"
               [(ngModel)]="this.registerForm.last_name" />
             <mat-hint>Ha ocurrido un error</mat-hint>
-<<<<<<< HEAD
             <mat-error *ngIf="lastNameFormControl.hasError('maxlength')">El apellido tiene que tener un máximo de 50
               carcteres </mat-error>
             <mat-error *ngIf="lastNameFormControl.status=='INVALID' && !lastNameFormControl.hasError('required')">
               Formato Apellidos no válido. Ejemplo:Boso Cocreto</mat-error>
-=======
-            <mat-error *ngIf="lastNameFormControl.hasError('maxlength')">El apellido tiene que tener un máximo de 50 caracteres </mat-error>
->>>>>>> 88cc5afb2ee1fcad0d1004f7de44219327564159
             <mat-error *ngIf="lastNameFormControl.hasError('required')">
               El apellido es <strong>requerido</strong>
             </mat-error>
