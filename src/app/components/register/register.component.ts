@@ -31,14 +31,14 @@ export class RegisterComponent implements OnInit {
 
   NameFormControl = new FormControl('', [
     Validators.required,
-    Validators.pattern('^[a-zA-Z ]{2,254}'),
+    Validators.pattern('[a-zA-Z ñÑáéíóúÁÉÍÓÚ\s]+'),
     Validators.maxLength(50),
     Validators.minLength(3)
   ]);
 
   lastNameFormControl = new FormControl('', [
     Validators.required,
-    Validators.pattern('^[a-zA-Z ]{2,254}'),
+    Validators.pattern('[a-zA-Z ñÑáéíóúÁÉÍÓÚ\s]+'),
     Validators.maxLength(50)
   ]);
 
