@@ -5,7 +5,6 @@ import { Product } from 'src/app/models/products.model';
 import { User } from 'src/app/models/user.model';
 import { ProductsService } from 'src/app/services/products/products.service';
 import {FormGroup, FormControl} from '@angular/forms';
-import * as moment from 'moment';
 
 @Component({
   selector: 'app-user-post-product',
@@ -15,16 +14,16 @@ import * as moment from 'moment';
 export class UserPostProductComponent implements OnInit {
 
   range = new FormGroup({
-    start: new FormControl(moment().format()),
-    end: new FormControl(moment().format())
+    start: new FormControl(),
+    end: new FormControl()
   });
 
   newProduct: Product = { 
     id: 0, 
     product_name: '', 
     description: '', 
-    day_start: this.range.value.start, 
-    day_finish: this.range.value.end, 
+    day_start: new Date(this.range.value.start), 
+    day_finish: new Date(this.range.value.end), 
     medias: [], 
     userId: 0 
   };

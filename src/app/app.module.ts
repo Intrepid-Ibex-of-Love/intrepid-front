@@ -12,8 +12,10 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
-import { MatNativeDateModule } from '@angular/material/core';
+import { MatNativeDateModule, MatOption } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatSelectModule } from '@angular/material/select';
+import { MatOptionModule } from '@angular/material/core';
 
 import { AppComponent } from './app.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -61,6 +63,8 @@ import { ImgUploadComponent } from './components/img-upload/img-upload.component
     MatListModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatSelectModule,
+    MatOptionModule,
     ToastrModule.forRoot(),
   ],
   providers: [],
