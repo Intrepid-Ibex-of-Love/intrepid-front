@@ -4,6 +4,7 @@ import { Medias } from 'src/app/models/productMedia.model';
 import { Product } from 'src/app/models/products.model';
 import { User } from 'src/app/models/user.model';
 import { ProductsService } from 'src/app/services/products/products.service';
+import {FormGroup, FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-user-post-product',
@@ -12,7 +13,20 @@ import { ProductsService } from 'src/app/services/products/products.service';
 })
 export class UserPostProductComponent implements OnInit {
 
-  newProduct: Product = { id: 0, product_name: '', description: '', day_start: new Date, day_finish: new Date, medias: [], userId: 0 }
+  range = new FormGroup({
+    start: new FormControl(),
+    end: new FormControl()
+  });
+
+  newProduct: Product = { 
+    id: 0, 
+    product_name: '', 
+    description: '', 
+    day_start: this.range.value.start, 
+    day_finish: this.range.value.end, 
+    medias: [], 
+    userId: 0 
+  };
   userLogin;
 
   constructor(private productsService: ProductsService, private toastr: ToastrService) {
@@ -22,6 +36,8 @@ export class UserPostProductComponent implements OnInit {
   ngOnInit(): void { }
 
   create() {
+    console.log(this.range.value.start);
+    console.log(this.newProduct);
     this.newProduct.userId = this.userLogin.id;
     this.productsService.create(this.newProduct)
       .then(newProuct => {

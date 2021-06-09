@@ -12,6 +12,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 import { AppComponent } from './app.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -55,6 +57,8 @@ import { EditUserComponent } from './views/settings/edit-user/edit-user.componen
     MatIconModule,
     MatDividerModule,
     MatListModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     ToastrModule.forRoot(),
   ],
   providers: [],
