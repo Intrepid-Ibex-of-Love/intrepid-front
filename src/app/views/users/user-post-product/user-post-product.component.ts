@@ -5,6 +5,7 @@ import { Product } from 'src/app/models/products.model';
 import { User } from 'src/app/models/user.model';
 import { ProductsService } from 'src/app/services/products/products.service';
 import {FormGroup, FormControl} from '@angular/forms';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-user-post-product',
@@ -14,8 +15,8 @@ import {FormGroup, FormControl} from '@angular/forms';
 export class UserPostProductComponent implements OnInit {
 
   range = new FormGroup({
-    start: new FormControl(),
-    end: new FormControl()
+    start: new FormControl(moment().format()),
+    end: new FormControl(moment().format())
   });
 
   newProduct: Product = { 
@@ -35,9 +36,7 @@ export class UserPostProductComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  create() {
-    console.log(this.range.value.start);
-    console.log(this.newProduct);
+  create(): void {
     this.newProduct.userId = this.userLogin.id;
     this.productsService.create(this.newProduct)
       .then(newProuct => {
