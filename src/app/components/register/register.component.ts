@@ -39,7 +39,8 @@ export class RegisterComponent implements OnInit {
   lastNameFormControl = new FormControl('', [
     Validators.required,
     Validators.pattern('^[a-zA-Z ]{2,254}'),
-    Validators.maxLength(50)
+    Validators.maxLength(50),
+    Validators.minLength(3)
   ]);
 
   postCodeFormControl = new FormControl('', [
