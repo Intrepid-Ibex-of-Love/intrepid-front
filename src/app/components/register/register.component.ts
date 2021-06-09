@@ -25,25 +25,25 @@ export class RegisterComponent implements OnInit {
     email: '',
     password: ''
   };
-  constructor(private authService : AuthService, private router:Router) { }
+  constructor(private authService: AuthService, private router: Router) { }
   minPw = 8;
   maxPw = 10;
   focus = false
 
-  NameFormControl = new FormControl('', [
+  name = new FormControl('', [
     Validators.required,
     Validators.pattern('[a-zA-Z ñÑáéíóúÁÉÍÓÚ\s]+'),
     Validators.maxLength(50),
     Validators.minLength(3)
   ]);
 
-  lastNameFormControl = new FormControl('', [
+  last_name = new FormControl('', [
     Validators.required,
     Validators.pattern('[a-zA-Z ñÑáéíóúÁÉÍÓÚ\s]+'),
     Validators.maxLength(50)
   ]);
 
-  postCodeFormControl = new FormControl('', [
+  post_code = new FormControl('', [
     Validators.required,
     Validators.maxLength(5),
     Validators.minLength(5),
@@ -51,21 +51,26 @@ export class RegisterComponent implements OnInit {
 
   ]);
 
-  emailFormControl = new FormControl('', [
+  email = new FormControl('', [
     Validators.required,
     Validators.pattern(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/),
     Validators.email,
   ]);
 
-  passwordFormControl = new FormControl('', [
+  password = new FormControl('', [
     Validators.required,
     Validators.minLength(this.minPw),
     Validators.maxLength(this.maxPw),
   ]);
-  // si alguien sabe como hacer la validaciones con formGroup le invito a cerveza
-  // formGroup = this.fb.group({
-  //   email: [Validators.required,Validators.pattern(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/),Validators.email]
-  // })
+
+
+  newForm = new FormGroup({
+    name: this.name,
+    last_name: this.last_name,
+    post_code: this.post_code,
+    email: this.email,
+    password: this.password
+  })
 
   matcher = new MyErrorStateMatcher();
 
@@ -73,13 +78,17 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
   register() {
-    const regis =this.authService.register(this.registerForm)
-      .then(newUser => {
-        console.log( newUser)
-        if (!newUser) this.router.navigate(['../','user-profile']);
-      }).catch(e => {
-        alert('Campos incorrectos, revisa que la información sea correcta');
-
-      });
+    if (this.newForm.valid) {
+      console.log(this.registerForm)
+      this.authService.register(this.registerForm)
+        .then(newUser => {
+          console.log('hola', newUser)
+          if (newUser.status===false){
+            alert(newUser.error)
+          } else{
+            this.router.navigate(['../', 'user-profile']);
+          }
+        })
+    }
   }
 }

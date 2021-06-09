@@ -1,22 +1,22 @@
 <div class="flex flex-col items-center justify-center select-none">
-  <div class="flex flex-col h-screen bg-white px-4 sm:px-6 md:px-8 lg:px-10 py-8 rounded-xl w-full max-w-md">
+  <div class="flex flex-col h-auto  bg-white px-4 sm:px-6 md:px-8 lg:px-10 py-8 rounded-xl w-full max-w-md">
     <div class="font-medium self-right text-xl sm:text-2xl rounded-full text-black">Iniciar sesión</div>
     <div class="mt-10">
-      <form method="POST" action="" autocomplete="">
+      <form method="POST" action="" autocomplete="" [formGroup]="newForm">
         <div class="relative w-full mb-3">
           <mat-form-field
             class="border-0 p-4 placeholder-gray-450 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full">
             <mat-label class="text-purple-700">Email</mat-label>
-            <input matInput placeholder="Email" [formControl]="emailFormControl" [errorStateMatcher]="matcher"
-              [(ngModel)]="this.loginForm.email" />
+            <input (blur)="focus=false" (focus)="focus=true" matInput placeholder="Email" formControlName="email"
+              [errorStateMatcher]="matcher" [(ngModel)]="this.loginForm.email" />
             <mat-hint>Ha ocurrido un error</mat-hint>
             <mat-error *ngIf="
-            emailFormControl.hasError('email') &&
-                                !emailFormControl.hasError('required')
+            email.invalid && (email.dirty || email.touched)   && !focus &&
+                                !email.hasError('required')
                               ">
               Por favor ingresa un formato de email válido
             </mat-error>
-            <mat-error *ngIf="emailFormControl.hasError('required')">
+            <mat-error *ngIf="email.hasError('required')">
               El Email es <strong>requerido</strong>
             </mat-error>
           </mat-form-field>
@@ -24,28 +24,26 @@
 
 
         <div class="relative w-full mb-3">
-          <!-- <app-input-password  ></app-input-password> -->
-          <!-- <input type="password" [(ngModel)]="this.loginForm.password" name="password" class="border-0 p-4 placeholder-gray-450 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full" placeholder="Password" required="required" style="transition: all 0.10s ease 0s;" /> -->
           <mat-form-field
-            class="border-0 p-4 placeholder-gray-450 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full">
-            <mat-label class="text-purple-700">Contraseña</mat-label>
-            <input matInput type="password" placeholder="Contraseña" [formControl]="passwordFormControl"
-              [errorStateMatcher]="matcher" [(ngModel)]="this.loginForm.password"/>
-            <mat-hint>Ha ocurrido un error</mat-hint>
-            <mat-error *ngIf="passwordFormControl.hasError('minlength')">La contraseña tiene que tener un mínimo de
-              {{minPw}}
-              carcteres </mat-error>
-            <mat-error *ngIf="passwordFormControl.hasError('maxLength')">La contraseña tiene que tener un máximo de
-              {{maxPw}}
-              carcteres </mat-error>
-            <mat-error *ngIf="passwordFormControl.hasError('required')">
-              Contraseña <strong>requerida</strong>
-            </mat-error>
-          </mat-form-field>
+          class="border-0 p-4 placeholder-gray-450 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full">
+          <mat-label class="text-purple-700">Contraseña</mat-label>
+          <input matInput type="password" placeholder="Contraseña" formControlName="password"
+            [errorStateMatcher]="matcher" [(ngModel)]="this.loginForm.password"/>
+          <mat-hint>Ha ocurrido un error</mat-hint>
+          <mat-error *ngIf="password.hasError('minlength')">La contraseña tiene que tener un mínimo de
+            {{minPw}}
+            caracteres </mat-error>
+          <mat-error *ngIf="password.hasError('maxlength')">La contraseña tiene que tener un máximo de
+            {{maxPw}}
+            caracteres </mat-error>
+          <mat-error *ngIf="password.hasError('required')">
+            Contraseña <strong>requerida</strong>
+          </mat-error>
+        </mat-form-field>
         </div>
         <div class="text-center mt-6">
-          <button type="submit" class="bg-purple-700 hover:bg-purple-500 text-white font-bold py-2 px-4 rounded"
-            (click)="login()" >Entrar</button>
+          <button type="button" class="bg-purple-700 hover:bg-purple-500 text-white font-bold py-2 px-4 rounded disabled:opacity-50"
+            (click)="login()" [disabled]="!newForm.valid" >Entrar</button>
         </div>
         <div class="flex flex-wrap mt-6">
           <div class="w-1/3 text-left">
