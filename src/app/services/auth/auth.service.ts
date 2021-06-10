@@ -34,11 +34,26 @@ export class AuthService {
   async register(registerData: {name: string, last_name: string,post_code: string, email: string, password: string}){
     return axios.post( this.apiURL+'register', registerData)
     .then(res => {
-      console.log('service', res );
+      // console.log('service', res );
       if(res.data.status===false){
         return res.data
       }else{
         return res ? this.isAuthenticate = true : this.isAuthenticate;
+      }
+
+
+    })
+    // .catch(e => alert(e.))
+  }
+
+  async resetPass(resetData: {email: string}){
+    return axios.post( this.apiURL+'reset-pass', resetData)
+    .then(res => {
+      // console.log('service', res );
+      if(res.data.status===false){
+        return res.data
+      }else{
+        return res.data
       }
 
 

@@ -1,0 +1,33 @@
+<div class="relative flex flex-col items-center justify-center select-none">
+  <div class="flex flex-col h-auto  bg-white px-4 sm:px-6 md:px-8 lg:px-10 py-8 rounded-xl w-full max-w-md">
+    <div class="font-medium self-right text-xl sm:text-2xl rounded-full text-black">Por favor ingrese aquí la cuenta de la que quiere recuperar contraseña</div>
+    <div class="mt-10">
+      <form method="POST" action="" autocomplete="" [formGroup]="newForm">
+        <div class="relative w-full mb-3">
+          <mat-form-field
+            class="border-0 p-4 placeholder-gray-450 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full">
+            <mat-label class="text-purple-700">Email</mat-label>
+            <input (blur)="focus=false" (focus)="focus=true" matInput placeholder="Email" formControlName="email"
+              [errorStateMatcher]="matcher" [(ngModel)]="this.registerForm.email" />
+            <mat-hint>Ha ocurrido un error</mat-hint>
+            <mat-error *ngIf="
+            email.invalid && (email.dirty || email.touched)   && !focus &&
+                                !email.hasError('required')
+                              ">
+              Por favor ingresa un formato de email válido
+            </mat-error>
+            <mat-error *ngIf="email.hasError('required')">
+              El Email es <strong>requerido</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="text-center mt-6">
+          <button type="submit"
+            class="bg-purple-700 hover:bg-purple-500 text-white font-bold py-2 px-4 rounded disabled:opacity-50 "
+            (click)="resetPass()" [disabled]="!newForm.valid">Enviar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -24,6 +24,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { AdminsComponent } from './views/admins/admins.component';
 import { SettingsComponent } from './views/settings/settings.component';
 import { EditUserComponent } from './views/settings/edit-user/edit-user.component';
+import { RecordarContrasenaComponent } from './components/recordar-contrasena/recordar-contrasena.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { EditUserComponent } from './views/settings/edit-user/edit-user.componen
     MenuComponent,
     AdminsComponent,
     SettingsComponent,
-    EditUserComponent
+    EditUserComponent,
+    RecordarContrasenaComponent
   ],
   imports: [
     BrowserModule,

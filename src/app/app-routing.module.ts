@@ -8,6 +8,7 @@ import { UserPostProductComponent } from './views/users/user-post-product/user-p
 import { UserProfileComponent } from './views/users/user-profile/user-profile.component';
 import { SettingsComponent } from './views/settings/settings.component';
 import { EditUserComponent } from './views/settings/edit-user/edit-user.component';
+import { RecordarContrasenaComponent } from './components/recordar-contrasena/recordar-contrasena.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,10 @@ const routes: Routes = [
     component: HomeComponent
   },
   /*Login */
+  {
+    path:'password',
+    component: RecordarContrasenaComponent
+  },
   {
     path:'sign-in',
     component: RegisterComponent
