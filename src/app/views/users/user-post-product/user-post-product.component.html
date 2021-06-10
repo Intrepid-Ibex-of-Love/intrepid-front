@@ -11,22 +11,24 @@
             <app-img-upload></app-img-upload>
         </div>
     </div>
-    <div>
-        <mat-form-field w-full appearance=fill>
+    <div class="flex flex-col">
+        <mat-form-field appearance="fill">
             <mat-label>Título del artículo</mat-label>
-            <input matInput [(ngModel)]="newProduct.product_name" required>
+            <input matInput [(ngModel)]="newProduct.product_name">
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label>Selecciona una categoría</mat-label>
-            <mat-select>
-                <mat-option value="one">First option</mat-option>
-                <mat-option value="two">Second option</mat-option>
+            <mat-select [(ngModel)]="newProduct.category">
+                <mat-option *ngFor="let category of allCategories" [value]="category">
+                    {{category}}
+                </mat-option>
             </mat-select>
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label>Describe el producto</mat-label>
             <textarea 
-                matInput 
+                matInput
+                [(ngModel)]="newProduct.description"
                 cdkTextareaAutosize
                 #autosize="cdkTextareaAutosize"
             >
@@ -38,13 +40,12 @@
                 <input matEndDate formControlName="end" placeholder="End date">
             </mat-date-range-input>
             <mat-datepicker-toggle matSuffix [for]="picker">
-                <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
             </mat-datepicker-toggle>
             <mat-date-range-picker #picker></mat-date-range-picker>
             <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
             <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
         </mat-form-field>
-        <button class="rounded-full bg-purple-700 py-3 px-6 mt-4 w-full text-white hover:bg-purple-400" (click)="create()">Guardar</button>
+        <button class="rounded-full bg-purple-700 py-3 px-6 mt-4 w-full text-white hover:bg-purple-400" (click)="this.postProduct()">Guardar</button>
     </div>
 
 <!--     <div class="grid grid-cols-1 mt-5 mx-7">
