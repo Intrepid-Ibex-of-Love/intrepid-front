@@ -38,7 +38,12 @@ export class AuthService {
       if(res.data.status===false){
         return res.data
       }else{
-        return res ? this.isAuthenticate = true : this.isAuthenticate;
+        let user = res.data.user;
+        let token = res.data.token;
+        localStorage.setItem('token',token);
+        localStorage.setItem('user', JSON.stringify(user));
+        res ? this.isAuthenticate = true : this.isAuthenticate;
+        return res.data
       }
 
 

@@ -1,6 +1,6 @@
 <div class="flex flex-wrap items-center justify-between pt-3 pl-3.5">
     <a mat-raised-button
-        class="rounded-full h-8 w-8 flex items-center justify-center bg-purple-700 text-white hover:bg-purple-400 " 
+        class="rounded-full h-8 w-8 flex items-center justify-center bg-purple-700 text-white hover:bg-purple-400 "
         [routerLink]="['/user-profile']">
         <mat-icon class="ml-1.5">arrow_back_ios</mat-icon>
     </a>
@@ -26,7 +26,7 @@
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label>Describe el producto</mat-label>
-            <textarea 
+            <textarea
                 matInput
                 [(ngModel)]="newProduct.description"
                 cdkTextareaAutosize
@@ -45,7 +45,7 @@
             <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
             <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
         </mat-form-field>
-        <button class="rounded-full bg-purple-700 py-3 px-6 mt-4 w-full text-white hover:bg-purple-400" (click)="this.postProduct()">Guardar</button>
+        <button class="rounded-full bg-purple-700 py-3 px-6 mt-4 w-full text-white hover:bg-purple-400 disabled:opacity-50" (click)="this.postProduct()"  [disabled]="!range.valid" >Guardar</button>
     </div>
 
 <!--     <div class="grid grid-cols-1 mt-5 mx-7">

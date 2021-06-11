@@ -83,11 +83,11 @@ export class RegisterComponent implements OnInit {
       console.log(this.registerForm)
       this.authService.register(this.registerForm)
         .then(newUser => {
-          console.log('hola', newUser)
           if (newUser.status===false){
             alert(newUser.error)
           } else{
-            this.router.navigate(['../', 'user-profile']);
+            alert(newUser.error)
+            this.router.navigate(['../', 'login']);
           }
         })
     }
