@@ -12,6 +12,12 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
+import { MatNativeDateModule, MatOption } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatSelectModule } from '@angular/material/select';
+import { MatOptionModule } from '@angular/material/core';
+import { TextFieldModule } from '@angular/cdk/text-field';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { AppComponent } from './app.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -25,6 +31,8 @@ import { AdminsComponent } from './views/admins/admins.component';
 import { SettingsComponent } from './views/settings/settings.component';
 import { EditUserComponent } from './views/settings/edit-user/edit-user.component';
 import { RecordarContrasenaComponent } from './components/recordar-contrasena/recordar-contrasena.component';
+import { ImgUploadComponent } from './components/img-upload/img-upload.component';
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +50,9 @@ import { RecordarContrasenaComponent } from './components/recordar-contrasena/re
     AdminsComponent,
     SettingsComponent,
     EditUserComponent,
-    RecordarContrasenaComponent
+    RecordarContrasenaComponent,
+    ImgUploadComponent,
+    SearchBarComponent
   ],
   imports: [
     BrowserModule,
@@ -57,6 +67,12 @@ import { RecordarContrasenaComponent } from './components/recordar-contrasena/re
     MatIconModule,
     MatDividerModule,
     MatListModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule,
+    MatOptionModule,
+    TextFieldModule,
+    MatToolbarModule,
     ToastrModule.forRoot(),
   ],
   providers: [],

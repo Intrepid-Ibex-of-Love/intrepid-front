@@ -40,7 +40,8 @@ export class RegisterComponent implements OnInit {
   last_name = new FormControl('', [
     Validators.required,
     Validators.pattern('[a-zA-Z ñÑáéíóúÁÉÍÓÚ\s]+'),
-    Validators.maxLength(50)
+    Validators.maxLength(50),
+    Validators.minLength(3)
   ]);
 
   post_code = new FormControl('', [
