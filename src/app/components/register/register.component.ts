@@ -40,7 +40,8 @@ export class RegisterComponent implements OnInit {
   last_name = new FormControl('', [
     Validators.required,
     Validators.pattern('[a-zA-Z ñÑáéíóúÁÉÍÓÚ\s]+'),
-    Validators.maxLength(50)
+    Validators.maxLength(50),
+    Validators.minLength(3)
   ]);
 
   post_code = new FormControl('', [
@@ -86,7 +87,8 @@ export class RegisterComponent implements OnInit {
           if (newUser.status===false){
             alert(newUser.error)
           } else{
-            this.router.navigate(['../', 'user-profile']);
+            alert('Cuenta creada , verifica tu email')
+            this.router.navigate(['../', 'login']);
           }
         })
     }

@@ -9,7 +9,6 @@
             <mat-label class="text-purple-700">Email</mat-label>
             <input (blur)="focus=false" (focus)="focus=true" matInput placeholder="Email" formControlName="email"
               [errorStateMatcher]="matcher" [(ngModel)]="this.registerForm.email" />
-            <mat-hint>Ha ocurrido un error</mat-hint>
             <mat-error *ngIf="
             email.invalid && (email.dirty || email.touched)   && !focus &&
                                 !email.hasError('required')

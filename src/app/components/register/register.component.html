@@ -9,10 +9,9 @@
             <mat-label class="text-purple-700">Nombre</mat-label>
             <input matInput placeholder="Nombre" formControlName="name" [errorStateMatcher]="matcher"
               [(ngModel)]="this.registerForm.name" />
-            <mat-hint>Ha ocurrido un error</mat-hint>
-            <mat-error *ngIf="name.hasError('maxlength')">El nombre tiene que tener un máximo de 50 caráteres
+            <mat-error *ngIf="name.hasError('maxlength')">El nombre tiene que tener un máximo de 50 caracteres
             </mat-error>
-            <mat-error *ngIf="name.hasError('minlength')">El nombre tiene que tener un mínimo de 3 caráteres
+            <mat-error *ngIf="name.hasError('minlength')">El nombre tiene que tener un mínimo de 3 caracteres
             </mat-error>
             <mat-error
               *ngIf="name.status=='INVALID' && !(name.hasError('required') || name.hasError('maxlength') || name.hasError('minlength'))">
@@ -28,9 +27,8 @@
             <mat-label class="text-purple-700">Apellidos</mat-label>
             <input matInput placeholder="Apellidos" formControlName="last_name" [errorStateMatcher]="matcher"
               [(ngModel)]="this.registerForm.last_name" />
-            <mat-hint>Ha ocurrido un error</mat-hint>
             <mat-error *ngIf="last_name.hasError('maxlength')">El apellido tiene que tener un máximo de 50
-              carcteres </mat-error>
+              caracteres </mat-error>
             <mat-error *ngIf="last_name.status=='INVALID' && !last_name.hasError('required')">
               Formato Apellidos no válido. Ejemplo:Boso Cocreto</mat-error>
             <mat-error *ngIf="last_name.hasError('required')">
@@ -44,7 +42,6 @@
             <mat-label class="text-purple-700">Email</mat-label>
             <input (blur)="focus=false" (focus)="focus=true" matInput placeholder="Email" formControlName="email"
               [errorStateMatcher]="matcher" [(ngModel)]="this.registerForm.email" />
-            <mat-hint>Ha ocurrido un error</mat-hint>
             <mat-error *ngIf="
             email.invalid && (email.dirty || email.touched)   && !focus &&
                                 !email.hasError('required')
@@ -63,7 +60,6 @@
             <mat-label class="text-purple-700">Código postal</mat-label>
             <input matInput placeholder="Código postal" formControlName="post_code"
               [errorStateMatcher]="matcher" [(ngModel)]="this.registerForm.post_code" />
-            <mat-hint>Ha ocurrido un error</mat-hint>
             <mat-error *ngIf="post_code.hasError('maxlength') || post_code.hasError('minlength')">El código postal tiene que tener 5 caracteres </mat-error>
             <mat-error *ngIf="post_code.status =='INVALID' && !(post_code.hasError('required') || post_code.hasError('maxlength') || post_code.hasError('minlength') )">Por favor introduzca un formato válido: Ej 34000 </mat-error>
             <mat-error *ngIf="post_code.hasError('required')">
@@ -77,7 +73,6 @@
           <mat-label class="text-purple-700">Contraseña</mat-label>
           <input matInput type="password" placeholder="Contraseña" formControlName="password"
             [errorStateMatcher]="matcher" [(ngModel)]="this.registerForm.password"/>
-          <mat-hint>Ha ocurrido un error</mat-hint>
           <mat-error *ngIf="password.hasError('minlength')">La contraseña tiene que tener un mínimo de
             {{minPw}}
             caracteres </mat-error>

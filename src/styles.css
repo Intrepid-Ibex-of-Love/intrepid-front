@@ -4,6 +4,8 @@
 @import "tailwindcss/utilities";
 /** IMPORT NOTIFICACIONES BONICAS UWU*/
 @import url(toast.css);
+/** IMPORT DE LA BASURA DE ANGULAR MATERIAL OWO*/
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

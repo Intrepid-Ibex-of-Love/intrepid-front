@@ -48,6 +48,10 @@ const routes: Routes = [
     path:'edit-user',
     component: EditUserComponent,
     canActivate: [AuthGuard],
+  },
+  {
+    path:'testing',
+    component: UserPostProductComponent
   }
 ];
 
