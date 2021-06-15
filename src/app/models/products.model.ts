@@ -5,6 +5,6 @@ export interface Product{
     description: string,
     day_start: Date,
     day_finish: Date,
-    medias: any[]
+    photo: string,
     userId: number
 }

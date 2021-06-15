@@ -9,6 +9,7 @@ import { UserProfileComponent } from './views/users/user-profile/user-profile.co
 import { SettingsComponent } from './views/settings/settings.component';
 import { EditUserComponent } from './views/settings/edit-user/edit-user.component';
 import { RecordarContrasenaComponent } from './components/recordar-contrasena/recordar-contrasena.component';
+import { EditProductComponent } from './views/users/edit-product/edit-product.component';
 
 const routes: Routes = [
   {
@@ -48,6 +49,11 @@ const routes: Routes = [
     path:'edit-user',
     component: EditUserComponent,
   //  canActivate: [AuthGuard],
+  },
+  {
+    path:'edit-post/:id',
+    component: EditProductComponent,
+    //canActivate: [AuthGuard],
   },
   {
     path:'testing',

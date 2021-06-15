@@ -1,7 +1,7 @@
 <div class="container h-auto mx-auto py-20 px-6">
 
     <div class="flex flex-wrap items-center justify-between">
-        <h1 class="text-purple-700">Bienvenide de nuevo {{user.name | titlecase}}</h1>
+        <h1 class="text-purple-700">Hola de nuevo {{user.name | titlecase}}</h1>
         <div class="py-7">
             <a [routerLink]="['/new-post']" class="bg-purple-700 rounded-full py-3 px-6 text-white hover:bg-purple-400">Subir producto</a>
         </div>
@@ -9,30 +9,32 @@
 
     <div class="flex flex-col py-6">
         <h3>Mis artículos</h3>
-        <span>Se han encontrado un total de {{allProducts.length}} artículos</span>
+        <span>Has subido un total de {{allProducts.length}} artículos a la plataforma</span>
         <div *ngIf="this.allProducts.length === 0" class="mx-auto pt-20">
             <img class="object-cover h-50 w-50 rounded-full opacity-60" src="../../../../assets/img/empty.png" alt="Empty box">
         </div>
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-        <div *ngFor="let product of allProducts"
-            class="grid grid-flow-row">
-            <div class="bg-white py-6 px-6 rounded-3xl w-64 my-4 shadow-xl mx-auto">
-                <div class="mt-8">
-                    <p class="text-xl font-semibold my-2">{{product.product_name}}</p>
+
+        <div *ngFor="let product of allProducts" class="grid grid-flow-row">
+            <div class="bg-white py-6 px-6 rounded-2xl w-64 my-4 shadow-xl mx-auto">
+                <img [src]="toBase64(product.photo)" class="img">
+                    <div class="mt-8">
+                    <p class="text-xl font-semibold my-2 text-purple-700">{{product.product_name}}</p>
                     <div class="flex space-x-2 text-gray-400 text-sm">
                         <p>{{product.description}}</p>
                         <p>{{product.category}}</p>
                     </div>
                     <div class="border-t-2"></div>
                     <div class="flex justify-around mt-4">
-                        <mat-icon (click)="deleteProduct(product.id)">delete</mat-icon>
-                        <mat-icon (click)="editProduct(product.id)">edit</mat-icon>
-                        <mat-icon (click)="seeProduct(product.id)">remove_red_eye</mat-icon>
+                        <mat-icon (click)="deleteProduct(product.id)" class="hover:text-purple-700">delete</mat-icon>
+                        <mat-icon [routerLink]="['/edit-post/',product.id]" class="hover:text-purple-700">edit</mat-icon>
+                        <mat-icon class="hover:text-purple-700" >remove_red_eye</mat-icon>
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
 </div>
