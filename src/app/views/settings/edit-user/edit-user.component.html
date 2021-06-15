@@ -1,3 +1,10 @@
+<div class="flex flex-wrap items-center justify-between pt-3 pl-3.5">
+  <a mat-raised-button
+      class="rounded-full h-8 w-8 flex items-center justify-center bg-purple-700 text-white hover:bg-purple-400 "
+      [routerLink]="['/user-profile']">
+      <mat-icon class="ml-1.5">arrow_back_ios</mat-icon>
+  </a>
+</div>
 <div class="relative flex flex-col items-center justify-center select-none py-20">
   <div class="flex flex-col h-screen bg-white px-4 sm:px-6 md:px-8 lg:px-10 py-8 rounded-xl w-full max-w-md">
     <h1 class="font-medium self-right rounded-full text-black">Editar usuario</h1>
@@ -70,7 +77,7 @@
         </mat-form-field>
         </div>
         <div class="text-center mt-6">
-          <button type="submit" class="bg-purple-700 hover:bg-purple-500 text-white font-bold py-2 px-4 rounded" ng-disable=" NameFormControl.valid" (click)="this.update()" >Guardar</button>
+   <!--        <button type="submit" class="bg-purple-700 hover:bg-purple-500 text-white font-bold py-2 px-4 rounded disabled:opacity-50" ng-disable="!NameFormControl.valid" (click)="this.update()" >Guardar</button> -->
         </div>
       </form>
     </div>

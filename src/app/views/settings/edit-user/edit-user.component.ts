@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { UserService } from 'src/app/services/users/user.service';
 import { ToastrService } from 'ngx-toastr';
@@ -61,6 +61,8 @@ export class EditUserComponent implements OnInit {
     Validators.minLength(this.minPw),
     Validators.maxLength(this.maxPw),
   ]);
+
+
   matcher = new MyErrorStateMatcher();
 
   ngOnInit(): void {
