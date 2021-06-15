@@ -25,6 +25,7 @@ export class UserProfileComponent implements OnInit {
     this.productsService.getAllProductsById(this.user.id).then(data => {
       this.allProducts = data;
     });
+    console.log(this.allProducts);
   }
 
 /* 
@@ -35,4 +36,19 @@ export class UserProfileComponent implements OnInit {
     });
   } */
 
+  deleteProduct(id : number){
+    console.log(id);
+    this.productsService.delete(id).then(product => {
+      this.toastr.success('El producto se ha borrado con éxito');
+    });
+
+    
+  }
+  editProduct(id : number){
+    alert(id);
+  }
+
+  seeProduct(id : number){
+    alert(id);
+  }
 }

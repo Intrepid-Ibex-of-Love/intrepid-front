@@ -75,6 +75,7 @@ export class UserPostProductComponent implements OnInit {
                 // }
                 // this.range.value.start =undefined
                 // this.range.value.end =undefined
+                console.log(this.newProduct);
                 this.router.navigate(['/user-profile'])
                 // window.location.reload()
 
@@ -92,10 +93,24 @@ export class UserPostProductComponent implements OnInit {
       const reader = new FileReader();
       reader.onload = (event: any) => {
         console.log(event.target.result);
-        const media: Medias = { uri: event.target.result };
+        const media : Medias = { photo: event.target.result, productId: this.newProduct.id };
         this.newProduct.medias.push(media);
+        console.log(this.newProduct.medias);
       }
       reader.readAsDataURL(event.target.files[i]);
     }
   }
+  
+  deleteProduct(id : number){
+    alert(id);
+  }
+  
+  editProduct(id : number){
+    alert(id);
+  }
+
+  seeProduct(id : number){
+    alert(id);
+  }
+
 }

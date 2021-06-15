@@ -37,17 +37,17 @@ const routes: Routes = [
   {
     path:'new-post',
     component: UserPostProductComponent,
-    canActivate: [AuthGuard]
+   // canActivate: [AuthGuard]
   },
   {
     path:'settings',
     component: SettingsComponent,
-    canActivate: [AuthGuard]
+  //  canActivate: [AuthGuard]
   },
   {
     path:'edit-user',
     component: EditUserComponent,
-    canActivate: [AuthGuard],
+  //  canActivate: [AuthGuard],
   },
   {
     path:'testing',

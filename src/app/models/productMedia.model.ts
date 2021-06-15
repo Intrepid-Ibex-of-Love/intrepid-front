@@ -1,3 +1,4 @@
 export interface Medias{
-    uri: string
+    photo: string,
+    productId: number,
 }
