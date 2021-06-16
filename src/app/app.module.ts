@@ -34,6 +34,7 @@ import { RecordarContrasenaComponent } from './components/recordar-contrasena/re
 import { ImgUploadComponent } from './components/img-upload/img-upload.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { EditProductComponent } from './views/users/edit-product/edit-product.component';
+import { AboutUsComponent } from './views/about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { EditProductComponent } from './views/users/edit-product/edit-product.co
     RecordarContrasenaComponent,
     ImgUploadComponent,
     SearchBarComponent,
-    EditProductComponent
+    EditProductComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,
