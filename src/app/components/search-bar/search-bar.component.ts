@@ -28,15 +28,5 @@ export class SearchBarComponent implements OnInit {
     this.search.valueChanges
     .pipe(debounceTime(270))
     .subscribe(value=> this.searchEmitter.emit(value))
-    // this.productService.getAllProducts().then(data => {
-    //   this.allProducts = data;
-    // });
-  }
-  search1() {
-    if (this.searchField === "") {
-      this.products = this.allProducts;
-    } else {
-      this.products = this.allProducts.filter(element => element.product_name.toLowerCase() === this.searchField.toLowerCase());
-    }
   }
 }
