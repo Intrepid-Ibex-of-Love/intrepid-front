@@ -4,19 +4,19 @@
 <mat-menu #menu="matMenu" class="bg-gray-100">
   <a [routerLink]="['user-profile']">
     <button mat-menu-item>
-      <mat-icon [ngStyle]="{'color':'rgb(89,0,207)'}">person</mat-icon>
+      <mat-icon [ngStyle]="{'color':'#ff8e3c'}">person</mat-icon>
       <span class="text-black">Perfil</span>
     </button>
   </a>
   <a [routerLink]="['edit-user']">
     <button mat-menu-item>
-      <mat-icon [ngStyle]="{'color':'rgb(89,0,207)'}">settings</mat-icon>
+      <mat-icon [ngStyle]="{'color':'#ff8e3c'}">settings</mat-icon>
       <span class="text-black">Configuración</span>
     </button>
   </a>
   <a>
     <button mat-menu-item (click)="this.logOut()">
-      <mat-icon [ngStyle]="{'color':'rgb(89,0,207)'}">logout</mat-icon>
+      <mat-icon [ngStyle]="{'color':'#ff8e3c'}">logout</mat-icon>
       <span class="text-black">Cerrar sesión</span>
     </button>
   </a>

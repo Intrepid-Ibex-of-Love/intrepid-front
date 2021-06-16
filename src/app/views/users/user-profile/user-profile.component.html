@@ -1,32 +1,48 @@
 <div class="container h-auto mx-auto py-20 px-6">
-
     <div class="flex flex-wrap items-center justify-between">
-        <h1 class="text-purple-700">Bienvenide de nuevo {{user.name | titlecase}}</h1>
+        <p class="text-orange text-3xl font-semibold">Hola de nuevo, {{ user.name | titlecase }}</p>
         <div class="py-7">
-            <a [routerLink]="['/new-post']" class="bg-purple-700 rounded-full py-3 px-6 text-white hover:bg-purple-400">Subir producto</a>
+            <a [routerLink]="['/new-post']" class="bg-orange font-regular py-3 px-6 text-white hover:bg-orange">Subir producto</a>
         </div>
     </div>
 
     <div class="flex flex-col py-6">
-        <h3>Mis artículos</h3>
-        <span>Se han encontrado un total de {{allProducts.length}} artículos</span>
+        <p class="text-2xl text-black3">Mis artículos</p>
+        <span>Has subido un total de {{ allProducts.length }} artículos a la
+            plataforma</span>
         <div *ngIf="this.allProducts.length === 0" class="mx-auto pt-20">
-            <img class="object-cover h-50 w-50 rounded-full opacity-60" src="../../../../assets/img/empty_state.png" alt="Empty box">
+            <img class="object-cover h-50 w-50" src="../../../../assets/img/empty.png"
+                alt="Empty box" />
         </div>
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-        <div *ngFor="let product of allProducts"
-            class="grid grid-flow-row">
-            <div class="bg-white py-6 px-6 rounded-3xl w-64 my-4 shadow-xl mx-auto">
-                <div class="mt-8">
-                    <p class="text-xl font-semibold my-2">{{product.product_name}}</p>
-                    <div class="flex space-x-2 text-gray-400 text-sm">
-                        <p>{{product.description}}</p>
+        <div *ngFor="let product of allProducts" class="bg-white p-2 sm:p-4 sm:h-64 rounded-2xl shadow-lg flex flex-col sm:flex-row gap-5 select-none">
+            <div class="h-52 sm:h-full sm:w-72 rounded-xl bg-gray-200">
+                <img [src]="toBase64(product.photo)" class="img">
+            </div>
+            <div class="flex flex-col flex-1 gap-5 sm:p-2">
+                <div class="flex flex-1 flex-col gap-3">
+                    <div class="w-full h-14">
+                        <p class="font-extrabold text-xl text-orange">{{product.product_name}}</p>
                     </div>
-                    <div class="border-t-2"></div>
-                    <div class="flex justify-between">
+                    <div class="w-full h-3">
+                        <p class="text-black2">{{product.description}}</p>
+                        <p class="text-black2"><mat-icon class="mb-1 hover:text-orange">list</mat-icon>{{product.category}}</p>
 
+                    </div>
+
+                </div>
+                
+                <div class="mt-auto flex gap-3">
+                    <div class="text-center w-20 h-8 rounded-full">
+                        <mat-icon (click)="deleteProduct(product.id)" class="hover:text-orange">delete</mat-icon>
+                    </div>
+                    <div class="text-center w-20 h-8 rounded-full">
+                        <mat-icon [routerLink]="['/edit-post/',product.id]" class="hover:text-orange">edit</mat-icon>
+                    </div>
+                    <div class="text-center w-20 h-8 rounded-full">
+                        <mat-icon class="hover:text-orange" >remove_red_eye</mat-icon>
                     </div>
                 </div>
             </div>

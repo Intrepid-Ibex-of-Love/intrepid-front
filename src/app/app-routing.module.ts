@@ -9,6 +9,8 @@ import { UserProfileComponent } from './views/users/user-profile/user-profile.co
 import { SettingsComponent } from './views/settings/settings.component';
 import { EditUserComponent } from './views/settings/edit-user/edit-user.component';
 import { RecordarContrasenaComponent } from './components/recordar-contrasena/recordar-contrasena.component';
+import { EditProductComponent } from './views/users/edit-product/edit-product.component';
+import { AboutUsComponent } from './views/about-us/about-us.component';
 
 const routes: Routes = [
   {
@@ -32,27 +34,33 @@ const routes: Routes = [
   {
     path:'user-profile',
     component: UserProfileComponent,
-    // canActivate: [AuthGuard]
+   //canActivate: [AuthGuard]
   },
   {
     path:'new-post',
     component: UserPostProductComponent,
-    canActivate: [AuthGuard]
+    //canActivate: [AuthGuard]
   },
   {
     path:'settings',
     component: SettingsComponent,
-    canActivate: [AuthGuard]
+    //canActivate: [AuthGuard]
   },
   {
     path:'edit-user',
     component: EditUserComponent,
-    canActivate: [AuthGuard],
+    //canActivate: [AuthGuard],
   },
   {
-    path:'testing',
-    component: UserPostProductComponent
+    path:'edit-post/:id',
+    component: EditProductComponent,
+    //canActivate: [AuthGuard],
+  },
+  {
+    path: 'about-us',
+    component:AboutUsComponent
   }
+
 ];
 
 @NgModule({

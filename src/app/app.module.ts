@@ -34,6 +34,8 @@ import { RecordarContrasenaComponent } from './components/recordar-contrasena/re
 import { ImgUploadComponent } from './components/img-upload/img-upload.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { SearchPipe } from './pipes/search.pipe';
+import { EditProductComponent } from './views/users/edit-product/edit-product.component';
+import { AboutUsComponent } from './views/about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,9 @@ import { SearchPipe } from './pipes/search.pipe';
     RecordarContrasenaComponent,
     ImgUploadComponent,
     SearchBarComponent,
-    SearchPipe
+    SearchPipe,
+    EditProductComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,

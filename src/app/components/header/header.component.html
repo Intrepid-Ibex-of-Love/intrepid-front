@@ -1,9 +1,9 @@
-<header class="z-50 border-b-2 border-purple-700 h-24 w-full">
+<header class="z-50 border-b-2 bg-white h-24 w-full">
     <nav class="flex flex-wrap items-center justify-between p-3 h-full w-full">
-        <a [routerLink]="['']" class="text-purple-700 font-bold text-2xl hover:text-purple-300">Comunidad</a>
+        <a [routerLink]="['']" class="text-orange font-bold text-2xl hover:text-orange">Comunidad</a>
         <div *ngIf="!this.getAuthState()" class="ml-3">
-            <a [routerLink]="['sign-in']" class="text-black mr-2 hover:text-purple-300">Regístrate</a>
-            <a [routerLink]="['login']" class="bg-purple-700 rounded-full py-3 px-3 text-white hover:bg-purple-300">Iniciar sesión</a>
+            <a [routerLink]="['sign-in']" class="text-black mr-2 hover:text-orange">Regístrate</a>
+            <a [routerLink]="['login']" class="bg-orange rounded-full py-3 px-3 text-white">Iniciar sesión</a>
         </div>
         <div *ngIf="this.getAuthState()">
             <app-banner-user></app-banner-user>
