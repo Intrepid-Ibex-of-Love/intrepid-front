@@ -6,7 +6,7 @@
         <div class="relative w-full mb-3">
           <mat-form-field
             class="border-0 p-4 placeholder-gray-450 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full">
-            <mat-label class="text-purple-700">Nombre</mat-label>
+            <mat-label class="text-orange">Nombre</mat-label>
             <input matInput placeholder="Nombre" formControlName="name" [errorStateMatcher]="matcher"
               [(ngModel)]="this.registerForm.name" />
             <mat-error *ngIf="name.hasError('maxlength')">El nombre tiene que tener un máximo de 50 caracteres
@@ -24,7 +24,7 @@
         <div class="relative w-full mb-3">
           <mat-form-field
             class="border-0 p-4 placeholder-gray-450 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full">
-            <mat-label class="text-purple-700">Apellidos</mat-label>
+            <mat-label class="text-orange">Apellidos</mat-label>
             <input matInput placeholder="Apellidos" formControlName="last_name" [errorStateMatcher]="matcher"
               [(ngModel)]="this.registerForm.last_name" />
             <mat-error *ngIf="last_name.hasError('maxlength')">El apellido tiene que tener un máximo de 50
@@ -39,7 +39,7 @@
         <div class="relative w-full mb-3">
           <mat-form-field
             class="border-0 p-4 placeholder-gray-450 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full">
-            <mat-label class="text-purple-700">Email</mat-label>
+            <mat-label class="text-orange">Email</mat-label>
             <input (blur)="focus=false" (focus)="focus=true" matInput placeholder="Email" formControlName="email"
               [errorStateMatcher]="matcher" [(ngModel)]="this.registerForm.email" />
             <mat-error *ngIf="
@@ -57,7 +57,7 @@
         <div class="relative w-full mb-3">
           <mat-form-field
             class="border-0 p-4 placeholder-gray-450 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full">
-            <mat-label class="text-purple-700">Código postal</mat-label>
+            <mat-label class="text-orange">Código postal</mat-label>
             <input matInput placeholder="Código postal" formControlName="post_code"
               [errorStateMatcher]="matcher" [(ngModel)]="this.registerForm.post_code" />
             <mat-error *ngIf="post_code.hasError('maxlength') || post_code.hasError('minlength')">El código postal tiene que tener 5 caracteres </mat-error>
@@ -70,7 +70,7 @@
         <div class="relative w-full mb-3">
           <mat-form-field
           class="border-0 p-4 placeholder-gray-450 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full">
-          <mat-label class="text-purple-700">Contraseña</mat-label>
+          <mat-label class="text-orange">Contraseña</mat-label>
           <input matInput type="password" placeholder="Contraseña" formControlName="password"
             [errorStateMatcher]="matcher" [(ngModel)]="this.registerForm.password"/>
           <mat-error *ngIf="password.hasError('minlength')">La contraseña tiene que tener un mínimo de
@@ -85,7 +85,7 @@
         </mat-form-field>
         </div>
         <div class="text-center mt-6">
-          <button type="submit" class="bg-purple-700 hover:bg-purple-500 text-white font-bold py-2 px-4 rounded disabled:opacity-50 "
+          <button type="submit" class="bg-orange hover:bg-purple-500 text-white font-bold py-2 px-4 rounded disabled:opacity-50 "
             (click)="register()"  [disabled]="!newForm.valid" >Enviar</button>
         </div>
         <div class="text-center mt-6">
