@@ -37,7 +37,6 @@ export class UserPostProductComponent implements OnInit {
     'Alimentación',
     'Servicios'
   ];
-  private image : any;
 
   constructor(private productsService: ProductsService, private toastr: ToastrService, private router: Router) {
     this.userLogin = JSON.parse(localStorage.getItem('user') || '{}');
@@ -53,7 +52,7 @@ export class UserPostProductComponent implements OnInit {
       
       this.productsService.create(this.newProduct)
         .then(data => {
-          if (!this.newProduct.product_name || !this.newProduct.description) {
+          if (!this.newProduct.product_name ||  !this.newProduct.description) {
             this.toastr.error('Ha ocurrido un error con la creación del producto ' + this.newProduct.product_name);
           } else {
             this.toastr.success('Se ha creado con éxito el producto ' + this.newProduct.product_name);
@@ -65,26 +64,16 @@ export class UserPostProductComponent implements OnInit {
         });
     }
   }
+  
   processFile(event: any){
-    
     const size = event.target.files.length;
     for (let i = 0; i < size; i++) {
       const reader = new FileReader();
       reader.onload = (event: any) => {
-        console.log(event.target.result);
         this.newProduct.photo = event.target.result;
-        //this.postProduct();
-        console.log(this.newProduct.photo);
       }
       reader.readAsDataURL(event.target.files[i]);
     }
-  }
-  
-  deleteProduct(id : number){
-    console.log(id);
-  }
-  seeProduct(id : number){
-    console.log(id);
   }
 
 }

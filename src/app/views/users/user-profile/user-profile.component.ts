@@ -32,12 +32,11 @@ export class UserProfileComponent implements OnInit {
       this.allProducts = data
     });
   }
-  //*veneno puro uwu/
+  
   toBase64(arr : any){
     console.log(arr.data);
     let base64 = btoa(
       arr.data.reduce((data : any, byte : any) => data + String.fromCharCode(byte), '')
-
     );
     return this.sanitizer.bypassSecurityTrustUrl('data:image/jpg;base64,' + base64);
   }

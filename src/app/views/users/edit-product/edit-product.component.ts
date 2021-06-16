@@ -35,9 +35,7 @@ export class EditProductComponent implements OnInit {
     'Alimentación',
     'Servicios'
   ];
-  constructor(private route : ActivatedRoute, private productService:ProductsService, private toastr: ToastrService, private router: Router) {
-    
-  }
+  constructor(private route : ActivatedRoute, private productService:ProductsService, private toastr: ToastrService, private router: Router) { }
 
   ngOnInit(): void {
     this.getProduct();
@@ -46,8 +44,6 @@ export class EditProductComponent implements OnInit {
   async getProduct(){
     let id = this.route.snapshot.paramMap.get('id') as string;
     this.product = await this.productService.getOne(id);
-    console.log(this.product);
-    console.log(id);
 
   }
   updateProduct(){
@@ -55,18 +51,15 @@ export class EditProductComponent implements OnInit {
     this.productService.updateProduct(this.product).then(data => {
       this.toastr.success('Se ha modificado con éxito el producto ' + this.product.product_name);
       this.router.navigate(['/user-profile'])
-    });
+    }).catch(error => this.toastr.error('Ha ocurrido un error con la modificación del producto'));
   }
   processFile(event: any){
-    
     const size = event.target.files.length;
     for (let i = 0; i < size; i++) {
       const reader = new FileReader();
       reader.onload = (event: any) => {
         console.log(event.target.result);
         this.product.photo = event.target.result;
-        //this.postProduct();
-        console.log(this.product.photo);
       }
       reader.readAsDataURL(event.target.files[i]);
     }

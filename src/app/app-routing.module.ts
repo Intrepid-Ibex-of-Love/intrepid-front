@@ -33,32 +33,29 @@ const routes: Routes = [
   {
     path:'user-profile',
     component: UserProfileComponent,
-    // canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path:'new-post',
     component: UserPostProductComponent,
-   // canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path:'settings',
     component: SettingsComponent,
-  //  canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path:'edit-user',
     component: EditUserComponent,
-  //  canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
   },
   {
     path:'edit-post/:id',
     component: EditProductComponent,
-    //canActivate: [AuthGuard],
-  },
-  {
-    path:'testing',
-    component: UserPostProductComponent
+    canActivate: [AuthGuard],
   }
+
 ];
 
 @NgModule({
