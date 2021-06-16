@@ -1,59 +1,59 @@
-<div class="flex flex-wrap items-center justify-between pt-3 pl-3.5">
-    <a mat-raised-button
-        class="rounded-full h-8 w-8 flex items-center justify-center bg-purple-700 text-white hover:bg-purple-400 "
-        [routerLink]="['/user-profile']">
+<div class="container h-auto mx-auto py-20 px-6">
+    <a mat-raised-button class="h-8 w-8 flex items-center justify-center bg-orange text-white p-5" [routerLink]="['/user-profile']">
         <mat-icon class="ml-1.5">arrow_back_ios</mat-icon>
     </a>
-</div>
-<div class="grid grid-cols-2 mx-auto h-screen w-auto py-20 px-6">
-    <div>
-        <div class='flex flex-col items-center justify-center w-full'>
-            <label class='flex flex-col border-4 border-dashed w-full h-32 hover:bg-gray-100 hover:border-purple-300 group'>
-                <div class='flex flex-col items-center justify-center pt-7'>
-                    <svg class="w-10 h-10 text-purple-400 group-hover:text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                    <p class='lowercase text-sm text-gray-400 group-hover:text-purple-600 pt-1 tracking-wider'>Añadir fotos</p>
-                </div>
-                <input type='file' class="hidden" (change)="processFile($event)" multiple/>
-            </label>
+
+    <div class="flex flex-wrap items-center justify-between mt-8">
+        <p class="text-black text-3xl font-semibold">Editando el producto <span class="text-orange">{{product.product_name}}</span></p>
+    </div>
+
+    <div class="grid grid-cols-2 mx-auto h-screen w-auto py-20 px-6">
+
+        <div class="mr-9">
+            <div class='flex flex-col items-center justify-center w-full'>
+                <label class='flex flex-col border-4 border-dashed w-full h-32 hover:bg-gray-100 hover:border-orange group'>
+                    <div class='flex flex-col items-center justify-center pt-7'>
+                        <svg class="w-10 h-10 text-orange group-hover:text-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        <p class='lowercase text-sm text-gray-400 group-hover:text-orange pt-1 tracking-wider'>Añadir fotos</p>
+                    </div>
+                    <input type='file' class="hidden" (change)="processFile($event)" multiple/>
+                </label>
+            </div>
         </div>
-
-    </div>
-    <div class="flex flex-col">
-        <h1>{{product.product_name}}</h1>
-        <mat-form-field appearance="fill">
-            <mat-label>Título del artículo</mat-label>
-            <input matInput [(ngModel)]="product.product_name">
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-            <mat-label>Selecciona una categoría</mat-label>
-            <mat-select [(ngModel)]="product.category">
-                <mat-option *ngFor="let category of allCategories" [value]="category">
-                    {{category}}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-            <mat-label>Describe el producto</mat-label>
-            <textarea
-                matInput
-                [(ngModel)]="product.description"
-                cdkTextareaAutosize
-                #autosize="cdkTextareaAutosize"
-            >
-            </textarea>
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-            <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
-                <input matStartDate formControlName="start" placeholder="Start date">
-                <input matEndDate formControlName="end" placeholder="End date">
-            </mat-date-range-input>
-            <mat-datepicker-toggle matSuffix [for]="picker">
-            </mat-datepicker-toggle>
-            <mat-date-range-picker #picker></mat-date-range-picker>
-            <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
-            <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
-        </mat-form-field>
-        <button class="rounded-full bg-purple-700 py-3 px-6 mt-4 w-full text-white hover:bg-purple-400 disabled:opacity-50" (click)="updateProduct()">Actualizar</button>
-    </div>
-
+        <div class="flex flex-col">
+            <mat-form-field>
+                <mat-label>Título del artículo</mat-label>
+                <input matInput [(ngModel)]="product.product_name">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Selecciona una categoría</mat-label>
+                <mat-select [(ngModel)]="product.category">
+                    <mat-option *ngFor="let category of allCategories" [value]="category">
+                        {{category}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Describe el producto</mat-label>
+                <textarea
+                    matInput
+                    [(ngModel)]="product.description"
+                    cdkTextareaAutosize
+                    #autosize="cdkTextareaAutosize"
+                >
+                </textarea>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
+                    <input matStartDate formControlName="start" placeholder="Start date">
+                    <input matEndDate formControlName="end" placeholder="End date">
+                </mat-date-range-input>
+                <mat-datepicker-toggle matSuffix [for]="picker">
+                </mat-datepicker-toggle>
+                <mat-date-range-picker #picker></mat-date-range-picker>
+                <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
+                <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
+            </mat-form-field>
+            <button class="bg-orange py-3 px-6 mt-4 w-full text-white disabled:opacity-50" (click)="updateProduct()">Actualizar</button>
+        </div>
 </div>

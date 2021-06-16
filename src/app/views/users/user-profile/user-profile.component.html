@@ -1,13 +1,13 @@
 <div class="container h-auto mx-auto py-20 px-6">
     <div class="flex flex-wrap items-center justify-between">
-        <p class="text-orange text-3xl">Hola de nuevo, {{ user.name | titlecase }}</p>
+        <p class="text-orange text-3xl font-semibold">Hola de nuevo, {{ user.name | titlecase }}</p>
         <div class="py-7">
-            <a [routerLink]="['/new-post']" class="bg-orange py-3 px-6 text-white hover:bg-orange">Subir producto</a>
+            <a [routerLink]="['/new-post']" class="bg-orange font-regular py-3 px-6 text-white hover:bg-orange">Subir producto</a>
         </div>
     </div>
 
     <div class="flex flex-col py-6">
-        <h3>Mis artículos</h3>
+        <p class="text-2xl text-black3">Mis artículos</p>
         <span>Has subido un total de {{ allProducts.length }} artículos a la
             plataforma</span>
         <div *ngIf="this.allProducts.length === 0" class="mx-auto pt-20">
@@ -24,26 +24,25 @@
             <div class="flex flex-col flex-1 gap-5 sm:p-2">
                 <div class="flex flex-1 flex-col gap-3">
                     <div class="w-full h-14">
-                        <h3 class="font-extrabold text-purple-700">{{product.product_name}}</h3>
+                        <p class="font-extrabold text-xl text-orange">{{product.product_name}}</p>
                     </div>
                     <div class="w-full h-3">
-                        {{product.description}}
+                        <p class="text-black2">{{product.description}}</p>
                     </div>
                 </div>
                 
                 <div class="mt-auto flex gap-3">
                     <div class="text-center w-20 h-8 rounded-full">
-                        <mat-icon (click)="deleteProduct(product.id)" class="hover:text-purple-700">delete</mat-icon>
+                        <mat-icon (click)="deleteProduct(product.id)" class="hover:text-orange">delete</mat-icon>
                     </div>
                     <div class="text-center w-20 h-8 rounded-full">
-                        <mat-icon [routerLink]="['/edit-post/',product.id]" class="hover:text-purple-700">edit</mat-icon>
+                        <mat-icon [routerLink]="['/edit-post/',product.id]" class="hover:text-orange">edit</mat-icon>
                     </div>
                     <div class="text-center w-20 h-8 rounded-full">
-                        <mat-icon class="hover:text-purple-700" >remove_red_eye</mat-icon>
+                        <mat-icon class="hover:text-orange" >remove_red_eye</mat-icon>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 </div>
