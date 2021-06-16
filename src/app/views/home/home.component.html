@@ -2,7 +2,22 @@
   class="bg-cover bg-center h-screen"
   style="background-image: url('https://images.pexels.com/photos/6646852/pexels-photo-6646852.jpeg?cs=srgb&dl=pexels-rodnae-productions-6646852.jpg&fm=jpg')">
   <app-search-bar (search)="handleSearch($event)"></app-search-bar>
-  <ul>
+  <!-- <ul>
     <li *ngFor="let product of products | search:filtro_valor">{{product.product_name}}</li>
-  </ul>
+  </ul> -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+    <div *ngFor="let product of products | search:filtro_valor" class="grid grid-flow-row py-6">
+      <div class="bg-white py-6 px-6 rounded-3xl w-64 my-4 shadow-xl mx-auto">
+        <div class="mt-8">
+          <p class="text-xl font-semibold my-2">{{product.product_name}}</p>
+          <div class="flex space-x-2 text-gray-400 text-sm">
+            <p>{{product.description}}</p>
+          </div>
+          <div class="border-t-2"></div>
+          <div class="flex justify-between">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
