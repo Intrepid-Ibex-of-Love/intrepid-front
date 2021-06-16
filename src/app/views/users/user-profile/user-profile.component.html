@@ -1,8 +1,8 @@
 <div class="container h-auto mx-auto py-20 px-6">
     <div class="flex flex-wrap items-center justify-between">
-        <h1 class="text-purple-700">Hola de nuevo {{ user.name | titlecase }}</h1>
+        <p class="text-orange text-3xl">Hola de nuevo, {{ user.name | titlecase }}</p>
         <div class="py-7">
-            <a [routerLink]="['/new-post']" class="bg-orange rounded-full py-3 px-6 text-white hover:bg-orange">Subir producto</a>
+            <a [routerLink]="['/new-post']" class="bg-orange py-3 px-6 text-white hover:bg-orange">Subir producto</a>
         </div>
     </div>
 
@@ -11,7 +11,7 @@
         <span>Has subido un total de {{ allProducts.length }} artículos a la
             plataforma</span>
         <div *ngIf="this.allProducts.length === 0" class="mx-auto pt-20">
-            <img class="object-cover h-50 w-50 rounded-full opacity-60" src="../../../../assets/img/empty.png"
+            <img class="object-cover h-50 w-50" src="../../../../assets/img/empty.png"
                 alt="Empty box" />
         </div>
     </div>
