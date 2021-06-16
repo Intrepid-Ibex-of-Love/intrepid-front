@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 import { Product } from 'src/app/models/products.model';
 import { ProductsService } from 'src/app/services/products/products.service';
+import { FormControl } from '@angular/forms';
+
+import {debounceTime} from 'rxjs/operators'
 
 @Component({
   selector: 'app-search-bar',
@@ -14,16 +17,22 @@ export class SearchBarComponent implements OnInit {
   products: Product[] = [];
   allProducts: Product[] = [];
 
+  search = new FormControl('');
+  @Output('search') searchEmitter = new EventEmitter<string>()
+
   constructor(private productService: ProductsService) {
     this.searchField = "";
   }
 
   ngOnInit(): void {
-    this.productService.getAllProducts().then(data => {
-      this.allProducts = data;
-    });
+    this.search.valueChanges
+    .pipe(debounceTime(270))
+    .subscribe(value=> this.searchEmitter.emit(value))
+    // this.productService.getAllProducts().then(data => {
+    //   this.allProducts = data;
+    // });
   }
-  search() {
+  search1() {
     if (this.searchField === "") {
       this.products = this.allProducts;
     } else {

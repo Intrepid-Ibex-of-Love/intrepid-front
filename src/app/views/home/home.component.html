@@ -1,5 +1,8 @@
 <div
   class="bg-cover bg-center h-screen"
   style="background-image: url('https://images.pexels.com/photos/6646852/pexels-photo-6646852.jpeg?cs=srgb&dl=pexels-rodnae-productions-6646852.jpg&fm=jpg')">
-  <app-search-bar></app-search-bar>
+  <app-search-bar (search)="handleSearch($event)"></app-search-bar>
+  <ul>
+    <li *ngFor="let product of products | search:filtro_valor">{{product.product_name}}</li>
+  </ul>
 </div>

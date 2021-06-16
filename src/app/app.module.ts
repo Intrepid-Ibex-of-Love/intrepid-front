@@ -33,6 +33,7 @@ import { EditUserComponent } from './views/settings/edit-user/edit-user.componen
 import { RecordarContrasenaComponent } from './components/recordar-contrasena/recordar-contrasena.component';
 import { ImgUploadComponent } from './components/img-upload/img-upload.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import { SearchPipe } from './pipes/search.pipe';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
     EditUserComponent,
     RecordarContrasenaComponent,
     ImgUploadComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
