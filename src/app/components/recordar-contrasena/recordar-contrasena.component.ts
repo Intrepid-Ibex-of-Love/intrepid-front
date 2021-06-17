@@ -48,7 +48,7 @@ export class RecordarContrasenaComponent  {
           if (newUser.status===false){
             this.toastr.error(newUser.error)
           } else{
-            this.toastr.error(newUser.error);
+            this.toastr.success(newUser.error);
             this.router.navigate(['/login'])
           }
         })
