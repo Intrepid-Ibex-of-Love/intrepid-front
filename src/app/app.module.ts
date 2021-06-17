@@ -36,6 +36,7 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
 import { SearchPipe } from './pipes/search.pipe';
 import { EditProductComponent } from './views/users/edit-product/edit-product.component';
 import { AboutUsComponent } from './views/about-us/about-us.component';
+import { ProductDetailComponent } from './views/products/product-detail/product-detail.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { AboutUsComponent } from './views/about-us/about-us.component';
     SearchBarComponent,
     SearchPipe,
     EditProductComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,

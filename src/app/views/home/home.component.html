@@ -1,21 +1,44 @@
+
 <div id="home"class="bg-cover bg-center h-screen"></div>
-  
-<app-search-bar (search)="handleSearch($event)"></app-search-bar>
-<!-- <ul>
-  <li *ngFor="let product of products | search:filtro_valor">{{product.product_name}}</li>
-</ul> -->
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-  <div *ngFor="let product of products | search:filtro_valor" class="grid grid-flow-row py-6">
-    <div class="bg-white py-6 px-6 rounded-3xl w-64 my-4 shadow-xl mx-auto">
-      <div class="mt-8">
-        <p class="text-xl font-semibold my-2">{{product.product_name}}</p>
-        <div class="flex space-x-2 text-gray-400 text-sm">
-          <p>{{product.description}}</p>
+
+<div class="container h-auto mx-auto py-20 px-6">
+
+    
+    <app-search-bar (search)="handleSearch($event)"></app-search-bar>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <div *ngFor="let product of products | search:filtro_valor" class="bg-white hover:shadow-md p-2 sm:p-4 sm:h-64 rounded-2xl shadow-lg flex flex-col sm:flex-row gap-5 select-none">
+            <div class="h-52 sm:h-full sm:w-72 rounded-xl bg-gray-200">
+                <img src="https://picsum.photos/200/300?grayscale" class="rounded-xl">
+            </div>
+            <div class="flex flex-col flex-1 gap-5 sm:p-2">
+                <div class="flex flex-1 flex-col gap-3">
+                    <div class="w-full h-14">
+                        <p class="font-extrabold text-xl text-orange">{{product.product_name}}</p>
+                    </div>
+                    <div class="w-full h-3 py-1 mb-9">
+                        <mat-icon class="hover:text-orange">description</mat-icon> {{product.description | slice:0:40}}...
+                    </div>
+                    <div class="w-full h-3 py-1 mb-3">
+                        <mat-icon class="hover:text-orange">label</mat-icon>{{product.category}}
+                    </div>
+                    <div class="w-full h-3 py-1 my-auto">
+                        <mat-icon class="hover:text-orange">calendar_today</mat-icon>{{product.day_start | date: 'dd MMMM yyyy'}} - {{product.day_finish | date: 'dd MMMM yyyy'}} 
+                    </div>
+                </div>
+                
+                <div class="mt-auto flex gap-3">
+                    <div class="text-center w-20 h-8 rounded-full">
+                    </div>
+                    <div class="text-center w-20 h-8 rounded-full">
+                    </div>
+                    <div class="text-center w-20 h-8 rounded-full">
+                        <a [routerLink]="['/product/',product.id]" class="hover:text-orange"><mat-icon>arrow_forward_ios</mat-icon></a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="border-t-2"></div>
-        <div class="flex justify-between">
-        </div>
-      </div>
     </div>
-  </div>
+
 </div>
+

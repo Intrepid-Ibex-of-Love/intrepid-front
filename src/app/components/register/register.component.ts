@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/auth/auth.service';
 
 
@@ -25,7 +26,7 @@ export class RegisterComponent implements OnInit {
     email: '',
     password: ''
   };
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router, private toastr: ToastrService ) { }
   minPw = 8;
   maxPw = 10;
   focus = false
@@ -83,10 +84,10 @@ export class RegisterComponent implements OnInit {
       this.authService.register(this.registerForm)
         .then(newUser => {
           if (newUser.status===false){
-            alert(newUser.error)
+            this.toastr.error(newUser.error);
+
           } else{
-            // alert('Cuenta creada , verifica tu email')
-            alert(newUser.error)
+            this.toastr.success(newUser.error);
             this.router.navigate(['../', 'login']);
           }
         })
