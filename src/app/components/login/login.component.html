@@ -40,7 +40,7 @@
         </mat-form-field>
         </div>
         <div class="text-center mt-6">
-          <button type="button" class="py-3 bg-orange text-white w-full rounded hover:bg-orange"
+          <button type="button" class="py-3 bg-orange text-white w-full rounded hover:bg-orange disabled:opacity-50"
             (click)="login()" [disabled]="!newForm.valid" >Iniciar sesión</button>
         </div>
         <div class="text-center flex-wrap mt-6">
@@ -55,6 +55,6 @@
                 class="text-black hover:text-orange text-lg"><small>Registrarme</small></a>
             </p>
         </div>
-      </form>          
+      </form>
   </div>
 </div>

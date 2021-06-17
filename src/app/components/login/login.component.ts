@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/auth/auth.service';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -20,7 +21,7 @@ export class LoginComponent implements OnInit {
 
   loginForm = { email: '', password: '' }
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router,  private toastr: ToastrService) { }
 
   minPw = 8;
   maxPw = 10;
@@ -54,12 +55,17 @@ export class LoginComponent implements OnInit {
         .then( newUser => {
           let a =  JSON.stringify(newUser);
           let b = JSON.parse(a)
-          if(b.status===false){alert(b.error)}else{this.router.navigate(['../', 'user-profile'])}
+          if(b.status===false){
+            this.toastr.error(b.error);
+          }else{
+            this.router.navigate(['../', 'user-profile'])
+          }
         }).catch(e => {
           alert(e);
 
         });
-    } else { alert('Campos incorrectos, revisa que la información sea correcta'); }
+    } else {
+      this.toastr.error('Campos incorrectos, revisa que la información sea correcta'); }
   }
 
 }

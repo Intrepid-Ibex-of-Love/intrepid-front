@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/auth/auth.service';
 
 
@@ -23,7 +24,7 @@ export class RecordarContrasenaComponent  {
   registerForm = {
     email: '',
   };
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router,  private toastr: ToastrService) { }
 
   focus = false
 
@@ -45,9 +46,9 @@ export class RecordarContrasenaComponent  {
       this.authService.resetPass(this.registerForm)
         .then(newUser => {
           if (newUser.status===false){
-            alert(newUser.error)
+            this.toastr.error(newUser.error)
           } else{
-            alert(newUser.error);
+            this.toastr.error(newUser.error);
             this.router.navigate(['/login'])
           }
         })
