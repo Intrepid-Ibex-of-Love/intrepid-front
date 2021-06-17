@@ -35,6 +35,7 @@ import { ImgUploadComponent } from './components/img-upload/img-upload.component
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { EditProductComponent } from './views/users/edit-product/edit-product.component';
 import { AboutUsComponent } from './views/about-us/about-us.component';
+import { ProductDetailComponent } from './views/products/product-detail/product-detail.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { AboutUsComponent } from './views/about-us/about-us.component';
     ImgUploadComponent,
     SearchBarComponent,
     EditProductComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,

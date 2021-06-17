@@ -6,5 +6,6 @@ export interface Product{
     day_start: Date,
     day_finish: Date,
     photo: string,
-    userId: number
+    userId: number,
+    requiredBy: number
 }

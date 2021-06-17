@@ -21,7 +21,7 @@
         </form>
       </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-          <div *ngFor="let product of products" class="bg-white p-2 sm:p-4 sm:h-64 rounded-2xl shadow-lg flex flex-col sm:flex-row gap-5 select-none">
+          <div *ngFor="let product of products"[routerLink]="['/product/',product.id]" class="bg-white p-2 sm:p-4 sm:h-64 rounded-2xl shadow-lg flex flex-col sm:flex-row gap-5 select-none">
               <div class="h-52 sm:h-full sm:w-72 rounded-xl bg-gray-200">
                 <img src="https://picsum.photos/200/300?grayscale" class="rounded-xl">
               </div>
