@@ -4,7 +4,6 @@ import { ErrorStateMatcher } from '@angular/material/core';
 import { UserService } from 'src/app/services/users/user.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
-import * as bcrypt from 'bcrypt';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
