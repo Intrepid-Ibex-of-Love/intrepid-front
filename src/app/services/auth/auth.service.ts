@@ -41,8 +41,6 @@ export class AuthService {
         res ? this.isAuthenticate = true : this.isAuthenticate;
         return res.data
       }
-
-
     })
   }
 
@@ -54,10 +52,10 @@ export class AuthService {
       }else{
         return res.data
       }
-
-
     })
   }
 
   authState = () => this.isAuthenticate;
+
+  logOut = () => this.isAuthenticate = false;
 }
