@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { FormControl,FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { UserService } from 'src/app/services/users/user.service';
 import { ToastrService } from 'ngx-toastr';
-import { identifierModuleUrl } from '@angular/compiler';
 import { Router } from '@angular/router';
+import * as bcrypt from 'bcrypt';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -24,15 +24,12 @@ export class EditUserComponent implements OnInit {
   maxPw = 10;
 
   userData;
-
-  constructor(
-      private user: UserService, 
-      private toastr: ToastrService, 
-      private route: Router
-  ){ 
+  passwd;
+  constructor(private user: UserService, private toastr: ToastrService, private route: Router){ 
     let userLogin = JSON.parse(localStorage.getItem('user') || '{}');
     let token = localStorage.getItem('token');
     this.userData = userLogin;
+    this.passwd = bcrypt.hash(this.userData.password);
   }
 
   NameFormControl = new FormControl('', [
@@ -69,6 +66,8 @@ export class EditUserComponent implements OnInit {
   }
 
   update() {
-    
+    this.user.updateUser(this.userData).then(res => {
+      this.toastr.success('Se ha modificado con éxito');
+    }).catch(error => this.toastr.error('Ha ocurrido un error con la modificación del usuario'));
   }
 }
