@@ -16,16 +16,15 @@
                     <div class="w-full h-14">
                         <p class="font-extrabold text-xl text-orange">{{product.product_name}}</p>
                     </div>
-                    <div class="w-full h-3 py-1 my-auto">
-                        <p class="text-black2">{{product.description}}</p>
+                    <div class="w-full h-3 py-1 mb-9">
+                        <mat-icon class="hover:text-orange">description</mat-icon> {{product.description | slice:0:40}}...
                     </div>
-                    <div class="w-full h-3 py-1 my-auto">
-                        <mat-icon class="hover:text-orange">list</mat-icon>{{product.category}}
+                    <div class="w-full h-3 py-1 mb-3">
+                        <mat-icon class="hover:text-orange">label</mat-icon>{{product.category}}
                     </div>
                     <div class="w-full h-3 py-1 my-auto">
                         <mat-icon class="hover:text-orange">calendar_today</mat-icon>{{product.day_start | date: 'dd MMMM yyyy'}} - {{product.day_finish | date: 'dd MMMM yyyy'}} 
                     </div>
-                    
                 </div>
                 
                 <div class="mt-auto flex gap-3">

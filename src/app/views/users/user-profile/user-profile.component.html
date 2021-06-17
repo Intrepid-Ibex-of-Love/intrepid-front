@@ -26,15 +26,19 @@
                     <div class="w-full h-14">
                         <p class="font-extrabold text-xl text-orange">{{product.product_name}}</p>
                     </div>
-                    <div class="w-full h-3">
-                        <p class="text-black2">{{product.description}}</p>
-                        <p class="text-black2"><mat-icon class="mb-1 hover:text-orange">list</mat-icon>{{product.category}}</p>
-
+                    <div class="w-full h-3 py-1 mb-9">
+                        <mat-icon class="hover:text-orange">description</mat-icon> {{product.description | slice:0:40}}...
                     </div>
-
+                    <div class="w-full h-3 py-1 mb-3">
+                        <mat-icon class="hover:text-orange">label</mat-icon>{{product.category}}
+                    </div>
+                    <div class="w-full h-3 py-1 my-auto">
+                        <mat-icon class="hover:text-orange">calendar_today</mat-icon>{{product.day_start | date: 'dd MMMM yyyy'}} - {{product.day_finish | date: 'dd MMMM yyyy'}} 
+                    </div>
                 </div>
                 
-                <div class="mt-auto flex gap-3">
+                <div class="mt-auto flex-row flex gap-3">
+
                     <div class="text-center w-20 h-8 rounded-full">
                         <mat-icon (click)="deleteProduct(product.id)" class="hover:text-orange">delete</mat-icon>
                     </div>
@@ -42,7 +46,7 @@
                         <mat-icon [routerLink]="['/edit-post/',product.id]" class="hover:text-orange">edit</mat-icon>
                     </div>
                     <div class="text-center w-20 h-8 rounded-full">
-                        <mat-icon class="hover:text-orange" >remove_red_eye</mat-icon>
+                        
                     </div>
                 </div>
             </div>
