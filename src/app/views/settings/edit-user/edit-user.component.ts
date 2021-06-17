@@ -23,12 +23,10 @@ export class EditUserComponent implements OnInit {
   maxPw = 10;
 
   userData;
-  passwd;
   constructor(private user: UserService, private toastr: ToastrService, private route: Router){ 
     let userLogin = JSON.parse(localStorage.getItem('user') || '{}');
     let token = localStorage.getItem('token');
     this.userData = userLogin;
-    this.passwd = bcrypt.hash(this.userData.password);
   }
 
   NameFormControl = new FormControl('', [
