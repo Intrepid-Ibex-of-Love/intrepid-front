@@ -5,7 +5,6 @@ import { ProductsService } from 'src/app/services/products/products.service';
 import { ToastrService } from 'ngx-toastr';
 import { DomSanitizer } from '@angular/platform-browser';
 
-
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
@@ -48,7 +47,7 @@ export class UserProfileComponent implements OnInit {
     return this.src = btoa( binary )
 
 
-   /*  return btoa(
+  /*  return btoa(
       arr.data.reduce((data : any, byte : any) => data + String.fromCharCode(byte), '')
     ); */
     //return this.sanitizer.bypassSecurityTrustHtml(`data:image/jpeg;base64,${base64}`);
