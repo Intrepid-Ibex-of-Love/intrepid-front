@@ -1,21 +1,32 @@
 <div id="home"class="bg-cover bg-center h-screen"></div>
   
 <app-search-bar (search)="handleSearch($event)"></app-search-bar>
-<!-- <ul>
-  <li *ngFor="let product of products | search:filtro_valor">{{product.product_name}}</li>
-</ul> -->
+
+
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-  <div *ngFor="let product of products | search:filtro_valor" class="grid grid-flow-row py-6">
-    <div class="bg-white py-6 px-6 rounded-3xl w-64 my-4 shadow-xl mx-auto">
-      <div class="mt-8">
-        <p class="text-xl font-semibold my-2">{{product.product_name}}</p>
-        <div class="flex space-x-2 text-gray-400 text-sm">
-          <p>{{product.description}}</p>
-        </div>
-        <div class="border-t-2"></div>
-        <div class="flex justify-between">
-        </div>
+  <div *ngFor="let product of products | search:filtro_valor" [routerLink]="['/product/',product.id]" class="bg-white p-2 sm:p-4 sm:h-64 rounded-2xl shadow-lg flex flex-col sm:flex-row gap-5 select-none">
+      <div class="h-52 sm:h-full sm:w-72 rounded-xl bg-gray-200">
+        <img src="https://picsum.photos/200/300?grayscale" class="rounded-xl">
       </div>
-    </div>
+      <div class="flex flex-col flex-1 gap-5 sm:p-2">
+          <div class="flex flex-1 flex-col gap-3">
+              <div class="w-full h-14">
+                  <p class="font-extrabold text-xl text-orange">{{product.product_name}}</p>
+              </div>
+              <div class="w-full h-3">
+                  <p class="text-black2">{{product.description}}</p>
+                  <p class="text-black2"><mat-icon class="mb-1 hover:text-orange">list</mat-icon>{{product.category}}</p>
+              </div>
+          </div>
+          
+          <div class="mt-auto flex gap-3">
+              <div class="text-center w-20 h-8 rounded-full">
+              </div>
+              <div class="text-center w-20 h-8 rounded-full">
+              </div>
+              <div class="text-center w-20 h-8 rounded-full">
+              </div>
+          </div>
+      </div>
   </div>
 </div>

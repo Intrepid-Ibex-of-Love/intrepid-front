@@ -31,6 +31,5 @@ export class ProductsService {
   }
   updateProduct(product: Product){
     return axios.put(this.apiURL, product).then(res => res.data).catch(e => console.error(e));
-
   }
 }

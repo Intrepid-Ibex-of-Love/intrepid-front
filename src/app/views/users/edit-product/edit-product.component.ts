@@ -20,7 +20,8 @@ export class EditProductComponent implements OnInit {
     day_start: new Date,
     day_finish: new Date,
     photo: '',
-    userId: 0
+    userId: 0,
+    requiredBy: 0
   };
   
   range = new FormGroup({
