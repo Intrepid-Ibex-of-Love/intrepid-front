@@ -21,7 +21,6 @@ export class AuthService {
         const error = {status: res.data.status,error: res.data.error}
         return error
       }else{
-        // return console.log('peta')
         let user = res.data.user;
         let token = res.data.token;
         localStorage.setItem('token',token);
@@ -29,12 +28,10 @@ export class AuthService {
         return this.isAuthenticate = true;
       }
     })
-    // .catch(e => e.send(404).message('contraseña o usuarios incorrectos'))
   }
   async register(registerData: {name: string, last_name: string,post_code: string, email: string, password: string}){
     return axios.post( this.apiURL+'register', registerData)
     .then(res => {
-      // console.log('service', res );
       if(res.data.status===false){
         return res.data
       }else{
@@ -48,13 +45,11 @@ export class AuthService {
 
 
     })
-    // .catch(e => alert(e.))
   }
 
   async resetPass(resetData: {email: string}){
     return axios.post( this.apiURL+'reset-pass', resetData)
     .then(res => {
-      // console.log('service', res );
       if(res.data.status===false){
         return res.data
       }else{
@@ -63,7 +58,6 @@ export class AuthService {
 
 
     })
-    // .catch(e => alert(e.))
   }
 
   authState = () => this.isAuthenticate;
