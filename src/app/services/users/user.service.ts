@@ -45,5 +45,9 @@ export class UserService {
         .then(e => console.log(e))
         .catch(e => console.error(e));
   }
+
+  async updateUser(user: User){
+    return await axios.patch(`${this.apiURL}/users/${user.id}`).then(res => res.data).catch(e => console.error(e));
+  }
 }
 
