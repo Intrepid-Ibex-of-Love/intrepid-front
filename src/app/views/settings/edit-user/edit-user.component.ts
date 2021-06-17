@@ -26,41 +26,51 @@ export class EditUserComponent implements OnInit {
   userData;
 
   constructor(
-      private user: UserService, 
-      private toastr: ToastrService, 
-      private route: Router
-  ){ 
+      private user: UserService,
+      private toastr: ToastrService,
+      private route: Router,
+      private userService : UserService
+  ){
     let userLogin = JSON.parse(localStorage.getItem('user') || '{}');
     let token = localStorage.getItem('token');
     this.userData = userLogin;
   }
 
-  NameFormControl = new FormControl('', [
+  name = new FormControl('', [
     Validators.required,
-    Validators.pattern('^[a-zA-Z ]{2,254}'),
+    Validators.pattern('[a-zA-Z ñÑáéíóúÁÉÍÓÚ\s]+'),
     Validators.maxLength(50),
     Validators.minLength(3)
   ]);
-  lastNameFormControl = new FormControl('', [
+
+  last_name = new FormControl('', [
     Validators.required,
-    Validators.pattern('^[a-zA-Z ]{2,254}'),
-    Validators.maxLength(50)
+    Validators.pattern('[a-zA-Z ñÑáéíóúÁÉÍÓÚ\s]+'),
+    Validators.maxLength(50),
+    Validators.minLength(3)
   ]);
-  postCodeFormControl = new FormControl('', [
+
+  post_code = new FormControl('', [
     Validators.required,
     Validators.maxLength(5),
     Validators.minLength(5),
     Validators.pattern('((0[1-9]|5[0-2])|[1-4][0-9])[0-9]{3}'),
+
   ]);
-  emailFormControl = new FormControl('', [
+
+  email = new FormControl('', [
     Validators.required,
+    Validators.pattern(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/),
     Validators.email,
   ]);
-  passwordFormControl = new FormControl('', [
-    Validators.required,
-    Validators.minLength(this.minPw),
-    Validators.maxLength(this.maxPw),
-  ]);
+
+
+  newForm = new FormGroup({
+    name: this.name,
+    last_name: this.last_name,
+    post_code: this.post_code,
+    email: this.email
+  })
 
 
   matcher = new MyErrorStateMatcher();
@@ -69,6 +79,18 @@ export class EditUserComponent implements OnInit {
   }
 
   update() {
-    
+    console.log('entra')
+    if (this.newForm.valid) {
+      this.userService.updateUser(this.userData)
+        .then(newUser => {
+          if (newUser.status===false){
+            this.toastr.error(newUser.error);
+          } else{
+            this.toastr.success(newUser.error);
+          }
+        })
+    }else{
+      this.toastr.error('Rellena todos los campos');
+    }
   }
 }

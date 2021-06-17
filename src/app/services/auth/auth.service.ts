@@ -16,7 +16,6 @@ export class AuthService {
   async login(loginData: {email: string, password: string}){
     return axios.post( this.apiURL+'login', loginData)
     .then(res => {
-      console.log(res)
       if(res.data.status===false){
         const error = {status: res.data.status,error: res.data.error}
         return error

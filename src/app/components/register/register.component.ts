@@ -80,7 +80,6 @@ export class RegisterComponent implements OnInit {
   }
   register() {
     if (this.newForm.valid) {
-      console.log(this.registerForm)
       this.authService.register(this.registerForm)
         .then(newUser => {
           if (newUser.status===false){
