@@ -8,7 +8,7 @@ import { User } from 'src/app/models/user.model';
 export class UserService {
 
   apiURL= 'http://localhost:3002/'
-
+  isAuthenticate = false;
   constructor() { }
 
   async getUserId(user : User) {
@@ -22,10 +22,10 @@ export class UserService {
     console.log(editUser)
     const foundUser = await  axios.patch(`${this.apiURL}users/${editUser.id}`,editUser)
       .then(res => {
-          let user = res.data.user;
-          let token = res.data.token;
-          localStorage.setItem('token',token);
+          
+          let user = res.data;
           localStorage.setItem('user', JSON.stringify(user));
+          this.isAuthenticate = true;
           return {
             status: true,
             error: 'Perfil Actualizado'

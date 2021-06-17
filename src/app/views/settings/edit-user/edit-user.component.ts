@@ -25,9 +25,8 @@ export class EditUserComponent implements OnInit {
   userData;
 
   constructor(
-      private user: UserService,
       private toastr: ToastrService,
-      private route: Router,
+      private router: Router,
       private userService : UserService
   ){
     let userLogin = JSON.parse(localStorage.getItem('user') || '{}');
@@ -86,6 +85,8 @@ export class EditUserComponent implements OnInit {
             this.toastr.error(newUser.error);
           } else{
             this.toastr.success(newUser.error);
+            this.router.navigate(['/user-profile'])
+
           }
         })
     }else{
